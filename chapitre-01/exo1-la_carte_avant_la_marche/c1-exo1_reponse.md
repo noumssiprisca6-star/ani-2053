@@ -1,13 +1,6 @@
-# Réponses à l'exercice
+# Reponse a l'exercice 1
 
-**1. Nombre de projets par type :**  
-1 — `exo` (`ConsoleApp`, C++)
-
-**2. Nombre de chaînes de compilation :**  
-5
-
-**3. Projet de démarrage :**  
-`exo`
-
-**4. Fichier racine du workspace :**  
-`test.jenga'
+-**Nombre de projets :**  1  projet - 'exo' (exo , consoleApp , c++)
+-**Nombre de chaines de compilation :**  5
+-**Projet de demarrage :**  'exo '
+-**Fichier racine du workspace :**  'test.jenga'
