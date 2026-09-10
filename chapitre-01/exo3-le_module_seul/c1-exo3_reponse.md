@@ -34,4 +34,4 @@
 ## Description
 - chaque fleche oriente vers le haut represente en faite la dependance :"depend de"
 - NKPlateform est construit en premier  par consequent NKMath est construit   en  dernier et depends donc des quatres autres projets  
-- la lecture de l'arborescence par rapport a la dependance ce fait du haut vers le bas , ce qui est en haut depend de ce qui est en bas de lui (chaque projet au dessus , depend du projet qui le suit ou des projets qui le suivent juste en dessous de celui ci )
+- la lecture de l'arborescence par rapport a la dependance ce fait du haut vers le bas , ce qui est en haut depend de  tout ce qui est en bas de lui (chaque projet au dessus , depend du projet qui le suit ou des projets qui le suivent juste en dessous de celui ci )
