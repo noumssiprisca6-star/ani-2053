@@ -14,6 +14,6 @@ with workspace("compil"):
         consoleapp()
         cppdialect("c++17") 
         cppcompiler("clang++")
-        language("c++")
+        language("c++")   
         includedirs(["."])
         files(["./**.cpp"])
