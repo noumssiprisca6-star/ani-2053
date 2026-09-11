@@ -87,6 +87,7 @@ jenga info
 ```
 
 * **Résultat :**
+```
 
 ========================== Jenga Workspace: Nkentseu ===========================
 
@@ -363,11 +364,11 @@ Daemon
 Status: Not running
 
 
-
+```
 
  `main `  est bien present  dans la liste des projets recensés par le workspace.
  comme suit : 
- 
+
     
  main                            ConsoleApp    C++        No     Yes
 
@@ -384,7 +385,7 @@ jenga build
 
 * **Resultat** : construction belle et bien reussi
 
-
+```
 ╔══════════════════════════════════════════════════════════════════════════════════════════════╗
 ║  Project: main                                                            Kind: CONSOLE_APP  ║
 ╚══════════════════════════════════════════════════════════════════════════════════════════════╝
@@ -440,7 +441,7 @@ jenga build
 ┌──────────────────────────────────────────────────────────────────────────────────────────────┐
 │  ✓ Build Successful                                                             Time: 3.59s  │
 └──────────────────────────────────────────────────────────────────────────────────────────────┘
-
+```
 
 
 ---
