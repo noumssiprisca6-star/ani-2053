@@ -444,7 +444,7 @@ Status:         ✓ SUCCESS
 
 #### D'apres mes remarques 
 
-1. **Rôle de `dependson` :** Définit la **dépendance temporelle** dans le graphe de compilation (Build Graph). Il indique à Jenga la séquence exacte de génération des cibles.
+1. **Rôle de `dependson` :** Définit la **dépendance temporelle** dans le graphe de compilation . Il indique à Jenga la séquence exacte de génération des cibles.
 2. **Rôle de `links` vs `dependson` :** Dans les systèmes modernes de méta-build comme Jenga, `dependson` inclut déjà la transmission des dépendances de liaison (*Link Dependencies*). Par conséquent, retirer la directive explicite `links` n'invalide pas l'édition de liens si `dependson` est présent.
 
 ```
