@@ -1,0 +1,19 @@
+import os
+from Jenga import *
+from Jenga.GlobalToolchains import RegisterJengaGlobalToolchains
+
+with workspace("compil"):
+    RegisterJengaGlobalToolchains()
+    cppdialect("c++17")
+    configurations(["Debug" ,"Release"])
+    targetoses([TargetOS.WINDOWS])
+    targetarchs([TargetArch.X86_64 , TargetArch.ARM64])
+    startproject("temps")
+
+    with project("temps"):
+        consoleapp()
+        cppdialect("c++17") 
+        cppcompiler("clang++")
+        language("c++")   
+        includedirs(["."])
+        files(["./**.cpp"])
