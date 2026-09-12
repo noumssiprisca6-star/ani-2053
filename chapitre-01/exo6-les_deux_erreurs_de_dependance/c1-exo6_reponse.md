@@ -24,49 +24,71 @@ NewProjet/
 
 ```
 
+
 ---
 
 ### 1. Code des Fichiers C++
 
-#### 🔹 Module Calcul (`Calculateur/`)
+####  Module Calcul (`Calculateur/`)
 
 `Calculateur/Calcul.h`
 
-```cpp
+```h
 #ifndef CALCUL_H
 #define CALCUL_H
 
 class Calcul {
 public:
-    int additionner(int a, int b);
+void Bonjour();
+int additionner(int a, int b);
 };
-
 #endif
+
 
 ```
 
 `Calculateur/Calcul.cpp`
 
+
 ```cpp
 #include "Calcul.h"
+#include<iostream>
 
 int Calcul::additionner(int a, int b) {
     return a + b;
 }
+    void Calcul::Bonjour(){
+   std::cout<<"Bonjour depuis Calcul.cpp"<<std::endl;
+    }
 
 ```
 
-#### 🔹 Module Affichage (`Affichage/`)
+`Calculateur/Calcul.jenga`
+
+```py
+with project ("Calcul"):
+    staticlib()
+    cppdialect("c++17")
+    cppcompiler("clang++")
+    language("c++")
+    files(["./**.cpp"])
+    includedirs(["."])
+   
+
+```
+
+####  Module Affichage (`Affichage/`)
 
 `Affichage/Affichage.h`
 
-```cpp
-#ifndef AFFICHAGE_H
-#define AFFICHAGE_H
+```h
+#ifndef SALUT_H
+#define SALUT_H
 
 class Affichage {
 public:
-    void afficherResultat(int valeur);
+    void AfficherResultat(int valeur);
+    void Tester();
 };
 
 #endif
@@ -76,37 +98,67 @@ public:
 `Affichage/Affichage.cpp`
 
 ```cpp
-#include "Affichage.h"
+#include "Affiche.h"
+#include"../Calculateur/Calcul.h"
 #include <iostream>
 
-void Affichage::afficherResultat(int valeur) {
+void Affichage::AfficherResultat(int valeur) {
+    Calcul calculer ;
+    int res = calculer.additionner(valeur,0);
     std::cout << "Le resultat du calcul est : " << valeur << std::endl;
 }
+ void Affichage::Tester(){
+    Calcul calculer;
+  calculer. Bonjour();
+ }
 
 ```
 
-#### 🔹 Programme Principal (`main.cpp`)
+`Affichage/Affichage.jenga`
+
+
+```py
+
+with project ("afficher") :
+    staticlib()
+    cppdialect("c++17")
+    cppcompiler("clang++")
+    language("c++")
+    files(["./**.cpp"])
+    includedirs(["../Calculateur"]) 
+    dependson(["Calcul"])           
+    links(["Calcul"])               
+
+```
+
+####  Module main(`NewProjet`)
+
+`NewProjet/main.cpp`
+
 
 ```cpp
-#include "Calculateur/Calcul.h"
-#include "Affichage/Affichage.h"
 
-int main() {
+#include<iostream>
+#include"Calculateur/Calcul.h"
+#include"Affichage/Affiche.h"
+
+int main(){
+
     Calcul op;
-    Affichage ecran;
-
-    int resultat = op.additionner(15, 25);
-    ecran.afficherResultat(res);
-
+    Affichage ecran ;
+    Affichage test ;
+    
+    int resultat = op.additionner(15,25);
+    ecran.AfficherResultat(resultat);
+    test.Tester();
     return 0;
 }
-
 
 ```
 
 ---
 
-### 2. Configuration du Build (`workspace.jenga`)
+### 2. Configuration du Build (`NewProjet.jenga`)
 
 ```python
 import os
