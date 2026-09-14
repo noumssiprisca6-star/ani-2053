@@ -1,0 +1,9 @@
+with project ("Calcul"):
+    staticlib()
+    cppdialect("c++17")
+    cppcompiler("clang++")
+    language("c++")
+    files(["./**.cpp"])
+    includedirs(["."])
+
+    

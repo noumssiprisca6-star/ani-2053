@@ -1,0 +1,38 @@
+import os
+from Jenga import *
+from Jenga.GlobalToolchains import RegisterJengaGlobalToolchains
+
+with workspace("compile"):
+    RegisterJengaGlobalToolchains()
+    cppdialect("c++17")
+    configurations(["Debug" ,"Release"])
+    targetoses([TargetOS.WINDOWS])
+    targetarchs([TargetArch.X86_64 , TargetArch.ARM64])
+    startproject("NewProject")
+
+    
+
+    with include ("Calculateur/Calcul.jenga"):
+        pass
+    with include ("Affichage/Affiche.jenga"):
+        pass
+    with project("NewProject"):
+        consoleapp()
+        cppdialect("c++17") 
+        cppcompiler("clang++")
+        language("c++")
+        includedirs(["."])
+        files(["./**.cpp"])
+        dependson(["Calcul","afficher"])
+        links(["Calcul", "afficher"])
+
+    with filter("config: Debug"):
+        optimize("OFF")
+        symbols(True)
+        defines(["DEBUG", "_DEBUG"])
+
+    with filter("config:Release"):
+        optimize("Speed")
+        symbols(False)
+        defines(["NODEBUG"])
+       
