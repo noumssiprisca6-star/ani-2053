@@ -17,7 +17,7 @@ On branch main
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git restore <file>..." to discard changes in working directory)
-	modified:   Fichier1.cpp
+	modified:   Test.cpp
 
 no changes added to commit (use "git add" and/or "git commit -a")
 
@@ -30,7 +30,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 **Commandes exécutées :**
 
 ```bash
-git add Fichier1.cpp
+git add Test.cpp 
 git status
 
 ```
@@ -39,12 +39,50 @@ git status
 
 ```text
 On branch main
+Your branch is up to date with 'origin/main'.
+
 Changes to be committed:
   (use "git restore --staged <file>..." to unstage)
-	modified:   Fichier1.cpp
+        new file:   Test.cpp
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   ../../chapitre-01/demo4-le_plan_du_million_de_lignes/c1-demo4_reponse.md
+        modified:   ../../chapitre-01/exo13-la_deuxieme_machine/c1-exo13_reponse.md
+        modified:   ../../chapitre-01/exo2-mesurer_avant_de_croire/c1-exo2_reponse.md
+        modified:   ../../chapitre-01/exo7-le_temps_que_ca_prend/c1-exo7_reponse.md
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        c2-exo2_reponse.md
 
 ```
+ * **inclusion de toutes les modifications**
+ **Commandes exécutées :**
+ ```bash
+ git add .
+ ```
+ **Sortie de `git status` :**
+ ```
+On branch main
+Your branch is up to date with 'origin/main'.
 
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   Test.cpp
+        new file:   c2-exo2_reponse.md
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   ../../chapitre-01/demo4-le_plan_du_million_de_lignes/c1-demo4_reponse.md
+        modified:   ../../chapitre-01/exo13-la_deuxieme_machine/c1-exo13_reponse.md
+        modified:   ../../chapitre-01/exo2-mesurer_avant_de_croire/c1-exo2_reponse.md
+        modified:   ../../chapitre-01/exo7-le_temps_que_ca_prend/c1-exo7_reponse.md
+```
+
+ 
 ---
 
 ## 3. État après la validation (`git commit`)
@@ -52,7 +90,7 @@ Changes to be committed:
 **Commandes exécutées :**
 
 ```bash
-git commit -m "Modification de Fichier1.cpp"
+git commit -m "modification d'un fichier et verification des git status"
 git status
 
 ```
@@ -64,7 +102,15 @@ On branch main
 Your branch is ahead of 'origin/main' by 1 commit.
   (use "git push" to publish your local commits)
 
-nothing to commit, working tree clean
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   ../../chapitre-01/demo4-le_plan_du_million_de_lignes/c1-demo4_reponse.md
+        modified:   ../../chapitre-01/exo13-la_deuxieme_machine/c1-exo13_reponse.md
+        modified:   ../../chapitre-01/exo2-mesurer_avant_de_croire/c1-exo2_reponse.md
+        modified:   ../../chapitre-01/exo7-le_temps_que_ca_prend/c1-exo7_reponse.md
+        modified:   c2-exo2_reponse.md
+
 
 ```
 
@@ -77,25 +123,17 @@ nothing to commit, working tree clean
 * **Explication :** Git a placé la modification dans la zone de transit (*staging area*). Elle est désormais enregistrée dans l'index et prête à faire partie du prochain snapshot.
 
 
+
+
 2. **Entre le `git add` et le `git commit` :**
-* **Ce qui change :** Le fichier disparaît de la zone de transit et le message `nothing to commit, working tree clean` apparaît.
-* **Explication :** La modification est désormais enregistrée de manière permanente dans la base de données locale de Git. Le répertoire de travail est propre et aligné avec le dernier commit.
+
+* **Ce qui change** : Les fichiers cibles (Test.cpp et c2-exo2_reponse.md) quittent la zone de transit (Changes to be committed). La branche locale passe à Your branch is ahead of 'origin/main' by 1 commit.
+
+* **Explication** : Git crée un nouvel objet commit contenant les fichiers présents dans la zone de transit et fait avancer le pointeur de la branche. Les fichiers restés hors de la zone de transit (les fichiers du chapitre-01) demeurent non indexés.
+
+* **Comprehension** :
+` git add (Préparer) `: Copie vos modifications dans la zone de transit (staging area). Elle vous permet de sélectionner précisément quels fichiers ou quelles modifications vous souhaitez inclure dans votre prochain enregistrement.
+` git status (Observer)` : Permet d'inspecter l'état actuel de votre travail. Elle affiche les fichiers qui ont été modifiés, ceux qui sont prêts à être enregistrés (dans la zone de transit) et ceux qui ne sont pas encore suivis par Git.    
 
 
-
-```
-
----
-
-### Comment l'enregistrer dans ton projet :
-
-1. Crée un fichier nommé **`c2-exo2_reponse.md`** (ou ouvre ton fichier `.md` existant).
-2. Colle l'intégralité du texte ci-dessus à l'intérieur.
-3. Sauvegarde le fichier.
-
-<ElicitationsGroup message="Que souhaites-tu faire ensuite ?">
-  <Elicitation label="Faire le commit du fichier .md" query="Comment faire le commit et le push de ce fichier .md sur GitHub ?"/>
-  <Elicitation label="Vérifier la structure du dossier" query="Vérifions ensemble la liste des fichiers dans mon dossier d'exercice."/>
-</ElicitationsGroup>
-
-```
+`git commit (Enregistrer)` : Valide et sauvegarde définitivement l'état des fichiers présents dans la zone de transit sous la forme d'un « instantané » dans l'historique de Git, accompagné d'un message explicatif.
