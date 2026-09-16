@@ -84,7 +84,8 @@ Ce message d'origine est **trop chargé** d'apres moi  et **mélange 3 fonctionn
 ### Proposition de réécriture (découpage en 3 commits clairs)
 
 #### Commit 1 : Correctif sur la profondeur
-```text
+
+```bash
 fix(editmode): ajuster la profondeur de l'overlay et de la cage
 
 - Soumettre les marqueurs au mode X-ray (st->editXray)
@@ -94,7 +95,7 @@ fix(editmode): ajuster la profondeur de l'overlay et de la cage
 
 #### Commit 2 : Gestion de la sélection
 
-```text
+```bash
 feat(editmode): implémenter la propagation de sélection par les sommets
 
 - Utiliser les sommets comme source de vérité pour sélectionner arêtes et faces
@@ -104,11 +105,19 @@ feat(editmode): implémenter la propagation de sélection par les sommets
 
 #### Commit 3 : Amélioration visuelle
 
-```text
+```bash
 feat(editmode): ajouter l'interpolation de couleur sur les arêtes
 
 - Teinter les arêtes selon l'état de leurs sommets (dégradé GPU)
 - Prioriser l'affichage des arêtes partiellement sélectionnées avec le tri en 2 passes
+
+```
+* **A part la creecriture , tous les commit me semble etre tres fiable , surtout le deuxieme commit**
+```bash
+feat(editmode): implémenter la propagation de sélection par les sommets
+
+- Utiliser les sommets comme source de vérité pour sélectionner arêtes et faces
+- Recalculer la sélection après chaque outil ou opération d'édition
 
 ```
 
