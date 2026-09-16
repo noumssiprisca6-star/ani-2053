@@ -119,9 +119,8 @@ Changes not staged for commit:
 ## 4. Analyse des changements entre chaque étape
 
 1. **Entre la modification et le `git add` :**
-* **Ce qui change :** Le fichier passe du statut *Changes not staged for commit* (non indexé, rouge) au statut *Changes to be committed* (indexé, vert).
-* **Explication :** Git a placé la modification dans la zone de transit (*staging area*). Elle est désormais enregistrée dans l'index et prête à faire partie du prochain snapshot.
-
+* **Ce qui change :** Le fichier passe du statut *Changes not staged for commit* (non indexé, de couleur rouge) au statut *Changes to be committed* (indexé, de couleur verte).
+* **Explication :** Git a placé la modification dans la zone de transit . Elle est désormais enregistrée dans l'index et prête à faire partie du prochain lot.
 
 
 
