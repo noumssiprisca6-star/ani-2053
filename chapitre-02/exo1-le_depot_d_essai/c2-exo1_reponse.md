@@ -71,7 +71,7 @@ git log --oneline --graph
 ```text
 * 9a38f3d (HEAD -> master) mon troisieme commit
 * aa48df4 deuxieme commit
-* d30e0a6 ajout de mon premier fichier du depot pour l'exercice du chapitre 2
+* d30e0a6  mon premier commit
 
 ```
 
