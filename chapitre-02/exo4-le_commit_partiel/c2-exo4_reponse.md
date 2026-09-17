@@ -134,11 +134,7 @@ index 0000000..2976f25
 +---
 +
 +
-+```text
-+commit b1a2c3d4e5f6... (HEAD -> main)
-+Author: Votre Nom <votre.email@example.com>
-+Date:   Thu Sep 17 08:30:00 2026
-+
++`
 +    docs: ajout d'une note en conclusion
 +
 +diff --git a/exercice.md b/exercice.md
