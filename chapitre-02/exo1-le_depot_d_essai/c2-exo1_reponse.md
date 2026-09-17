@@ -7,18 +7,9 @@ Ce document détaille les étapes réalisées pour initialiser un dépôt Git, c
 
 ## 1. Initialisation du dépôt Git
 
-Dans mon  dossier  (`chapitre-02/exo1-le_depot_d_essai`), le dépôt Git a été initialisé à l'aide de la commande :
+>TOUTES LES MODIFICATIONS EFFECTUER SUR CETTE EXERCICE ONT ETE CREE SUR MON NOUVEAU DEPOT MONESSAI : https://github.com/noumssiprisca6-star/MonEssaie.git
 
-```bash
-git init
 
-```
-
-*Résultat :* Initialized empty Git repository in C:/Users/jouvence computer/Desktop/ex/ani-2053/chapitre-02/exo1-le_depot_d_essai/.git/
-
-* **Un dépôt Git vide a été créé dans le dossier du projet.**
-
----
 
 ## 2. Création des fichiers et validation des commits
 
@@ -29,18 +20,17 @@ git init
 Création et enregistrement du premier fichier :
 
 ```bash
-git add .
+git add Fichier1.cpp
 git commit -m "ajout de mon premier fichier du depot pour l'exercice du chapitre 2"
 
 ```
-* **J'ai fait ` git add .` et non `git add fichier1.cpp` afin d'ajouter mon fichier .md a mon premier commit**
 
 ### Étape 2.2 : Deuxième commit
 
 Création et enregistrement du deuxième fichier :
 
 ```bash
-git add fichier2.cpp
+git add Fichier2.cpp
 git commit -m "deuxieme commit"
 
 ```
@@ -50,7 +40,7 @@ git commit -m "deuxieme commit"
 Création et enregistrement du troisième fichier :
 
 ```bash
-git add fichier3.cpp
+git add Fichier3.cpp
 git commit -m "mon troisieme commit"
 
 ```
