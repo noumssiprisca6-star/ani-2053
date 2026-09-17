@@ -1,7 +1,7 @@
 #include<iostream>
 int main (){
     /*affiche*/
-    std::cout <<"apprendre la gestion d'erreur avce git " <<std::endl;
-    std::cout<<"essaie pour le test des erreurs "<<std::endl;
+    std::cout<<"testons les commandes d'annulation de git  "<<std::endl;
+    std::cout <<"le test des erreurs sur github et de leur annulation "<<std::endl;
     return 0;
 }
