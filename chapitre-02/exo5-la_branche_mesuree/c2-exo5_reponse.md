@@ -105,5 +105,9 @@ Créer des commits **ne fait pas gagner de la place** sur le disque, mais en **c
 ## Conclusion
 
 La place occupée par le dossier `.git` augmente donc à chaque nouveau commit pour stocker l'historique complet des modifications.
+et il ne faut pas oublier de revenir sur la branche principale avec 
+```bash
+git checkout main 
+```
 
 
