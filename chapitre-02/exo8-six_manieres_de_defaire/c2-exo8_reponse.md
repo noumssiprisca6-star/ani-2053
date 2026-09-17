@@ -1,22 +1,6 @@
 
 
----
 
-### Explication simple des 6 situations
-
-1. **Modification non voulue :** Vous modifiez un fichier par erreur et vous voulez revenir au dernier état propre du fichier (avant tout `git add`).
-2. **Un `add` de trop :** Vous avez fait `git add` sur un fichier que vous ne vouliez pas préparer pour le commit. Il faut l'enlever de la zone de staging sans effacer vos modifications.
-3. **Un commit de trop (en local) :** Vous avez fait un commit en local, mais vous voulez l'annuler (garder le code ou tout effacer) avant de l'avoir envoyé à distance.
-4. **Un commit poussé qu'il faut annuler :** Le commit est déjà envoyé sur le serveur (`origin/main`). Il faut créer un commit d'annulation (*revert*) pour ne pas réécrire l'historique partagé.
-5. **Un travail en cours à mettre de côté :** Vous devez changer de tâche d'urgence alors que votre travail actuel n'est pas prêt à être commité.
-6. **Un commit "perdu" à retrouver :** Vous supprimez ou annulez un commit par erreur, puis vous utilisez l'historique système de Git (`reflog`) pour retrouver son identifiant (SHA) et le restaurer.
-
----
-
-### Modèle de fichier `.md` de réponse
-
-
-```markdown
 # Réponses à l'exercice : Manipulations et annulations avec Git
 
 ## 1. Une modification non voulue
