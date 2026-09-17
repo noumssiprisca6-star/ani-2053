@@ -109,5 +109,12 @@ et il ne faut pas oublier de revenir sur la branche principale avec
 ```bash
 git checkout main 
 ```
-
+et  pour ajouter les modifications effectuer sur ma branche 
+```bash
+git merge test-taille
+```
+pour envoyer  sur github
+``` bash
+git push origin main
+```
 
