@@ -6,16 +6,17 @@
 
 
 ## modification de test 
-```bash
 
-# Titre initial 
+
+# Titre mis a jour du projet 
 
 ## Section 1
 Ceci est le texte initial de la section 1.
 
 ## Section 2
 Ceci est le texte initial de la section 2.
-```
+ajout d'une remarque finale
+
 
 ## 1. Modifications apportées
 J'ai modifié le fichier à deux endroits indépendants :
