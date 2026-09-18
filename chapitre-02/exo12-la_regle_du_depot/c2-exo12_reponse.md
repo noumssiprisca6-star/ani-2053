@@ -164,5 +164,8 @@ git push origin <votre_prenom>/hotfix-reparer-main
 3. **Fusionner en priorité:** Étape 3.
 Ouvrez une Pull Request d'urgence sur GitHub, demandez à un camarade de valider rapidement, puis fusionnez sur `main`.
 
+>**Consigne importante pour l'équipe**
+>**Dès que main ne compile plus, prévenez immédiatement vos camarades sur votre canal de discussion (Discord/WhatsApp/Slack) : personne ne doit faire de git pull origin main ni fusionner de PR tant que la branche n'est pas réparée !**
+
 >**CECI CONCERNE TOUS LES MEMBRES DU GROUPE SANS EXEPTION**
 >**POUR UNE MEILLEURE COLLABORATION SUR GITHUB IL FAUT TOUJOURS S'ASSURER DE TOUJOURS RESPECTER LA CHARTE DE GIT.**
