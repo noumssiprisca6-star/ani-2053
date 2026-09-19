@@ -12,7 +12,7 @@
 
 ---
 ## Petite simulation de presentation
-bonjour a tou je me nomme `NOUMSSI TIATSAP` et aujourd'hui nous allons resoudre un petit conflit provoquer volontairement sur deux branches distinctes de mon depot . Restons concentrer
+bonjour tout le monde je me nomme `NOUMSSI TIATSAP` et aujourd'hui nous allons resoudre un petit conflit provoquer volontairement sur deux branches distinctes de mon depot . Restons concentrer
 
 ## 1. Provocation du Conflit
 
