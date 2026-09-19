@@ -280,7 +280,7 @@ Date:   Sun Apr 19 12:23:47 2026 +0100
 * **Commit :** `9fc9f5f6b6fee59a8a43af4a1e91c342b9ecd910`
 * **Message de commit :** `fix(nkaudio): ROOT CAUSE du son ralenti/bruite/intermittent...`
 * **Changement :** Correction ciblée du problème d'échantillonnage sous Windows (WASAPI).
-* **Explication simple :** L'auteur a identifié et résolu un bogue critique où le son grésillait ou tournait au ralenti. La mémoire tampon (*buffer*) réservée par le moteur était trop petite par rapport à ce que la carte son demandait vraiment (256 frames au lieu de 1056).
+* **Explication  :** L'auteur a identifié et résolu un bogue critique où le son grésillait ou tournait au ralenti. La mémoire tampon (*buffer*) réservée par le moteur était trop petite par rapport à ce que la carte son demandait vraiment (256 frames au lieu de 1056).
 
 ---
 
