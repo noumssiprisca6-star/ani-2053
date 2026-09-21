@@ -61,14 +61,15 @@ Moi par exemple j'ai eu enormement de probleme pour push mon travail , apres val
 * **Points d'accord :**  Les pull request  devraient etre revus et traiter avant une duree de 30min apres leur ouvertures 
 * **Décisions prises :** Validation de la fusion de la  branche après correction des éléments bloquants. Creation des branches pour chaque fonctionnalite distinctes
 ```bash
- 
- feature
   feature-add
   feature-calculator
 * main
   test-merge
   test-rebase
 ```
+ * **Ce que fait les branches**:
+ `feature-add` est la branche pour les formules d'addition et de division , la declaration des fonctions y afferentes 
+ `feature-calculatrice ` est pour l'implementation des foctions dans le cpp
 * **Membres présents :** [NYECK], [DIKOUME], [EMMA], [NOUMSSI]
   
  
