@@ -29,6 +29,22 @@
 
 ---
 
+## 3. Echange de branche 
+
+```bash
+commit 46d57487086eadd04f8d38d13c581a91918ee011 (origin/feature-soustraction)
+Author: Maël Abondo <emilemaelnyeckabondo@gmail.com>
+Date:   Sat Sep 19 23:34:21 2026 +0100
+
+    feat : ajout de l'opération de soustraction
+    
+    La classe calculator ne présentait pas encore de possibilité de faire l'opération de multiplication. LA fonction template Soustraction prends ainsi en charge l'opération de soustraction pour tous les types de bases de c++.
+    La calculatrice peut ainsi soustraire n'importe quelle valeur sans soucis.
+```
+
+la branche que j'ai  recuperer chez mon collaborateur 
+* **feature-soustraction** : cette  branche permet d'effectuer les operations de soustraction de nombre
+
 ## 3. Ce qui manque (Oublis ou Lacunes)
 
 *  **Documentation / Commentaires :** Les commentaires sont pas tous presents dans les fichiers pour decrirent certaines fonctions
@@ -38,7 +54,7 @@
 
 ## 4. Ce qui ne devrait pas y être 
 
-Il y'en a pas 
+* **Le commit mentionne l'abscence de la fonctionnalite de multiplication , mais on se rend compte que le commit inclut plutot une multiplication** : Dans l'analyse du commit de mon collaborateur , on peut constater que l'objectif principal du commit est de presenter la fonctionnalite de l'operation de soustraction  , mais une erreur de saisi a du s'inserer arce qu'il ne parle reellement pas de la multiplication comme il l'introduit . il n'a donc pas introduit la multiplication mais  des operation de  soustraction.
 ---
 
 ## 5. Synthèse et Recommandations
@@ -47,29 +63,18 @@ Il y'en a pas
 | :--- | :---: | :--- |
 | **Fonctionnalité** |  Valide | Aucune modification majeure |
 | **Historique Git** |  À améliorer | Réécrire ou clarifier les messages de commit flous |
-| **Nettoyage du code** |  Requis et implementer | Supprimer les fichiers temporaires et ajouter un `.gitignore` |
 
 ---
 
-## 6. Difficultes rencontrer 
+## 7. Difficultes rencontrer 
    
 Moi par exemple j'ai eu enormement de probleme pour push mon travail , apres validation de mon code par mes collaborateur , le pull request une fois effectuer , mon push ne partait pas et je recevait un enorme message d'erreur  .Mias ce fut resolu 
 
 
-## 7. Bilan de la Discussion 
+## 8. Bilan de la Discussion 
 
 * **Points d'accord :**  Les pull request  devraient etre revus et traiter avant une duree de 30min apres leur ouvertures 
 * **Décisions prises :** Validation de la fusion de la  branche après correction des éléments bloquants. Creation des branches pour chaque fonctionnalite distinctes
-```bash
-  feature-add
-  feature-calculator
-* main
-  test-merge
-  test-rebase
-```
- * **Ce que fait les branches**:
- `feature-add` est la branche pour les formules d'addition et de division , la declaration des fonctions y afferentes 
- `feature-calculatrice ` est pour l'implementation des foctions dans le cpp
 * **Membres présents :** [NYECK], [DIKOUME], [EMMA], [NOUMSSI]
   
  
