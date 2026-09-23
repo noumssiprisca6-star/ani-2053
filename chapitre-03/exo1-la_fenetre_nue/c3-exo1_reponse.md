@@ -4,6 +4,8 @@
 
 > *« Écrivez le plus petit programme qui ouvre une fenêtre, la garde ouverte, et se termine proprement. Comptez ses lignes, et retrouvez chacune dans le chapitre. »*
 
+>**Creation du Workspace et configuration du exo1-la_fenetre_nue.jenga*
+
 ---
 
 ## 2. Code source minimal
@@ -69,3 +71,5 @@ Le programme  comporte **16 lignes physiques de code**.
 
 
 >**l'execution du programme c'est bien deroule meme comme apres ouverture de la fenetre , la fermeture provoque quelque petit bug mais qui s'extompe rapidement**
+
+>** Le resultat de l'execution est dans le fichier `Capture`se trouvant dans le dossier`exo1-la_fenetre_nue`
