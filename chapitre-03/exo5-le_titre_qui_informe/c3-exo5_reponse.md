@@ -10,7 +10,7 @@ L'objectif de cet exercice est de mettre en place la gestion dynamique du titre 
 
 
 ---
-## 2. Code Source C++
+## 2. Code Source C++ (`c3-exo5_main.cpp`)
 
 ```cpp
 
