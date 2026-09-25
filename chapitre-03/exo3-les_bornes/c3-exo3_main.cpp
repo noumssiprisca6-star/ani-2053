@@ -6,8 +6,8 @@ using namespace nkentseu ;
 int nkmain(const NkEntryState &state) {
     NkWindowConfig cfg;
     cfg.title  = "Ma fenetre";
-    cfg.width  = 800;
-    cfg.height = 600;
+    cfg.width  = 2000; /*j'ai modifier ce parametre durant lexercice , il a donc pris les valeurs, 800 , 3,2000*/
+    cfg.height = 1000;/*pareillement ici les valeurs , 600,2 1000 lui ont ete attribuer */
 
     NkWindow window(cfg);
     if (!window.IsOpen()) {

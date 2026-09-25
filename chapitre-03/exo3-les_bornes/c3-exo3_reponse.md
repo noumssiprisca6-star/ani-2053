@@ -43,6 +43,7 @@
 
 | Contrainte | Valeur définie (px) | Observé / Respecté | Limite réelle du système (px) |
 | :--- | :--- | :--- | :--- |
-| **Taille Minimale** | `300 x 200` | [Oui / Non] | `2 x 1 px` |
-| **Taille Maximale** | `800 x 600` | [Oui / Non] | `2000 x 1500px` |
+| **Taille Minimale** | `300 x 200` | Oui  | `2 x 1 px` |
+| **Taille Maximale** | `800 x 600` | Oui | `2000 x 1000px` |
 
+>* **Toutes les tailles notes ici , je les ais tester dans le fichier c3-exo3_main.cpp de facon progressive , en inserant differentes valeurs progressivement et en enregistrant l'etat de chaque situation , voici donc les images realtives a mes test voir les fichier `test 800 x 600 px.png` , `test 2000 x 1000 px .png` , `test3 x 2 px .png`
