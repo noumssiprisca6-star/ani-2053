@@ -77,7 +77,7 @@ L'objectif de cet exercice est de comprendre le comportement de la capture de la
 
 ```
  
- >** les valeurs negatives sont celles retenus  lorsque le curseur est maintenu hors de le fenetre **
+
 
 #### Observation du comportement :
 
@@ -96,7 +96,7 @@ L'objectif de cet exercice est de comprendre le comportement de la capture de la
 
 | Critère | Sans Capture | Avec Capture |
 | :--- | :--- | :--- |
-| **Continuité du mouvement** | Le suivi s'arrête brusquement dès que l'on sort de la fenêtre. | Le suivi est fluide et continu, même à l'extérieur de la fenêtre. |
+| **Continuité du mouvement** | LJJe suivi s'arrête brusquement dès que l'on sort de la fenêtre. | Le suivi est fluide et continu, même à l'extérieur de la fenêtre. |
 | **Relâchement du clic** | **Sensation de "blocage" :** Le programme reste bloqué en mode "glisser" car il n'a pas vu que l'utilisateur a relâché le bouton. | **Comportement naturel :** Le glisser-déposer se termine normalement dès que le bouton est relâché. |
 | **Expérience globale** | Frustrante et bugguée pour un composant d'interface (ex: barre de défilement, slider). | Conforme aux attentes de l'utilisateur sur un système d'exploitation moderne. |
 
