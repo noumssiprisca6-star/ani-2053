@@ -1,25 +1,20 @@
 #  Taille de fenêtre, Cible de rendu et Facteur d'échelle
 
-## 1. Informations Générales
-- **Date du test :** 24/08/2026
-- **Système d'exploitation :** window
-- **Résolution native de l'écran :** `800 x 600 px`
 
----
-
-## 2. Définition des Variables Observées
+## 1. Définition des Variables Observées
 
 1. **Taille de la fenêtre (Logique) :** Dimensions perçues par le système d'exploitation (pixels logiques).
 2. **Cible de rendu (Physique) :** Nombre réel de pixels traités par le moteur graphique/GPU (`Taille Fenêtre × Facteur d'échelle`).
-3. **Facteur d'échelle :** Ratio appliqué par le système (`1.0` pour 100%, `1.5` pour 150%).
+3. **Facteur d'échelle :** Ratio appliqué par le système (`1.0` pour 100%, `1.25` pour 125%).
 
 ---
 
-## 3. Implémentation C++ (`c3-exo4_main.cpp`)
+## 2. Implémentation C++ (`c3-exo4_main.cpp`)
 
 Le code suivant initialise la fenêtre et affiche les trois valeurs dans le terminal :
 
 ```cpp
+
 #include "NKWindow/NKWindow.h"
 #include "NKWindow/NKMain.h"
 #include <iostream>
@@ -34,30 +29,21 @@ int nkmain(const NkEntryState &state) {
 
     NkWindow window(cfg);
     if (!window.IsOpen()) {
-        logger.Error("La creation fenetre a echoue");
+        logger.Error(" La creation fenetre echouee");
         return -1;
     }
+     
+    logger.Info("Taille rendu par la fenetre : {0}", window.GetSize());
+    logger.Info( "La taille rendu par la cible de rendu : {0} x {1}", window.GetSize().x ,window.GetSize().y);
+    logger.Info("le facteur d'echelle: {0}", window.GetDpiScale());
+    
 
-    // 1. Taille logique de la fenetre
-    int windowWidth  = cfg.width;
-    int windowHeight = cfg.height;
-
-    // 2. Facteur d'echelle
-    float scale = 1.0f; 
-
-    // 3. Calcul de la cible de rendu
-    int renderWidth  = static_cast<int>(windowWidth * scale);
-    int renderHeight = static_cast<int>(windowHeight * scale);
-
-    // Affichage cote a cote
-    std::cout << "==================================================" << std::endl;
-    std::cout << "Taille Fenetre    : " << windowWidth << " x " << windowHeight << std::endl;
-    std::cout << "Cible de Rendu    : " << renderWidth << " x " << renderHeight << std::endl;
-    std::cout << "Facteur d'Echelle : " << scale << std::endl;
-    std::cout << "==================================================" << std::endl;
-
-    while (window.IsOpen()) { 
-        /* gestion des evenements */ 
+    while (window.IsOpen()) {
+        while (NkEvent *ev = NkEvents().PollEvent()){
+            if(ev->Is<NkWindowCloseEvent>()){
+             window.Close();
+            }
+        }
     }
     return 0;
 }
@@ -66,27 +52,25 @@ int nkmain(const NkEntryState &state) {
 
 ---
 
-## 4. Relevé des Mesures Côte à Côte
+## 3. Relevé des Mesures Côte à Côte
 
-### Test 1 : Échelle standard (100%)
-*Réglage système : 100%*
-```
-==================================================
-Taille Fenetre    : 800 x 600
-Cible de Rendu    : 800 x 600
-Facteur d'Echelle : 1
-==================================================
-```
----
+### Test 1 :  Facteur d'Échelle  afficher  (100%)
 
-### Test 2 : Échelle modifiée 
-*Réglage système : [1.5 f pour 150% ]*
 ```
-==================================================
-Taille Fenetre    : 800 x 600
-Cible de Rendu    : 1200 x 900
-Facteur d'Echelle : 1.5
-==================================================
+[2026-09-25 18:48:09.448] [INF] [default] [c3-exo4_main.cpp:19 in nkmain] -> Taille rendu par la fenetre : (800, 600)
+[2026-09-25 18:48:09.453] [INF] [default] [c3-exo4_main.cpp:20 in nkmain] -> La taille rendu par la cible de rendu : 800 x 600
+[2026-09-25 18:48:09.453] [INF] [default] [c3-exo4_main.cpp:21 in nkmain] -> le facteur d'echelle: 1
+```
+
+### Test 2 : Échelle modifiée  a partir des parametre de mon ordinateur au niveau de la mise a l'echelle (125%)
+ 
+```
+
+[2026-09-25 18:55:59.368] [INF] [default] [c3-exo4_main.cpp:19 in nkmain] -> Taille rendu par la fenetre : (798, 592)
+[2026-09-25 18:55:59.369] [INF] [default] [c3-exo4_main.cpp:20 in nkmain] -> La taille rendu par la cible de rendu : 798 x 592
+[2026-09-25 18:55:59.369] [INF] [default] [c3-exo4_main.cpp:21 in nkmain] -> le facteur d'echelle: 1.25
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 ---
 
@@ -97,7 +81,7 @@ Facteur d'Echelle : 1.5
 | Test | Taille Fenêtre (Logique) | Facteur d'Échelle  | Cible de Rendu (Physique) |
 | --- | --- | --- | --- |
 | **Écran standard (100%)** | `800 x 600` | `1.0` | `800 x 600` |
-| **Écran zoomé (150%)** | `800 x 600` | `1.5` | `1200 x 900` |
+| **Écran zoomé (150%)** | `800 x 600` | `1.25` | `798 x 592` |
 
 ---
 
@@ -110,4 +94,4 @@ $$\text{Cible de Rendu} = \text{Taille Fenêtre} \times \text{Facteur d'Échelle
 
 * **Observation :**
 Lorsque le facteur d'échelle est égal à `1.0`, chaque pixel logique correspond exactement à un pixel physique sur l'écran.
-Lorsque le système utilise un facteur d'échelle supérieur (comme avec  `1.5` pour un affichage à 150%), la taille logique de la fenêtre reste constante (`800x600`), mais la carte graphique calcule une image plus grande (`1200x900`) afin d'assurer un rendu visuel net et proportionné sur des écrans à haute densité.
+Lorsque le système utilise un facteur d'échelle supérieur (comme avec  `1.5` pour un affichage à 150%), la taille logique de la fenêtre reste constante (`800x600`), mais la carte graphique calcule une image plus grande (`798 x 592`) afin d'assurer un rendu visuel net et proportionné sur des écrans à haute densité.

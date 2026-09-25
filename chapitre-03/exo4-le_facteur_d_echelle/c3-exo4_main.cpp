@@ -15,30 +15,18 @@ int nkmain(const NkEntryState &state) {
         logger.Error(" La creation fenetre echouee");
         return -1;
     }
+     
+    logger.Info("Taille rendu par la fenetre : {0}", window.GetSize());
+    logger.Info( "La taille rendu par la cible de rendu : {0} x {1}", window.GetSize().x ,window.GetSize().y);
+    logger.Info("le facteur d'echelle: {0}", window.GetDpiScale());
+    
 
-    //  Taille logique de la fenetre (depuis la configuration)
-    int windowWidth  = cfg.width;
-    int windowHeight = cfg.height;
-
-    // 2. Facteur d'echelle 
-    // Par defaut, l'echelle est definie sur 1.0f (100%).
-    // Si l'echelle du systeme change, la taille du framebuffer/rendu s'adapte.
-    float scale = 1.5f; 
-
-    // 3. Calcul de la cible de rendu
-    int renderWidth  = static_cast<int>(windowWidth * scale);
-    int renderHeight = static_cast<int>(windowHeight * scale);
-
-    // Affichage des trois valeurs cote a cote dans le terminal
-    std::cout << "==================================================" << std::endl;
-    std::cout << "Taille Fenetre    : " << windowWidth << " x " << windowHeight << std::endl;
-    std::cout << "Cible de Rendu    : " << renderWidth << " x " << renderHeight << std::endl;
-    std::cout << "Facteur d'Echelle : " << scale << std::endl;
-    std::cout << "==================================================" << std::endl;
-    // ----------------------
-
-    while (window.IsOpen()) { 
-        /* les evenements arrivent ici */ 
+    while (window.IsOpen()) {
+        while (NkEvent *ev = NkEvents().PollEvent()){
+            if(ev->Is<NkWindowCloseEvent>()){
+             window.Close();
+            }
+        }
     }
     return 0;
 }
