@@ -57,7 +57,7 @@ int nkmain(const NkEntryState &state) {
             }
           
         }
-              IsModified = false ;
+           
     }
     return 0;
 } 
