@@ -46,19 +46,19 @@ int nkmain(const NkEntryState &state) {
                         window.SetCursor(NkWindow::NkCursorType::Hand);
                     } 
                     else if (x < width * 3.0f / 7.0f) {
-                        window.SetCursor(NkWindow::NkCursorType::Arrow);
+                        window.SetCursor(NkWindow::NkCursorType::ResizeNESW);
                     } 
                     else if (x < width * 4.0f / 7.0f) {
-                        window.SetCursor(NkWindow::NkCursorType::Hand);
+                        window.SetCursor(NkWindow::NkCursorType::ResizeNS);
                     } 
                     else if (x < width * 5.0f / 7.0f) {
-                        window.SetCursor(NkWindow::NkCursorType::Arrow);
+                        window.SetCursor(NkWindow::NkCursorType::ResizeNWSE);
                     } 
                     else if (x < width * 6.0f / 7.0f) {
-                        window.SetCursor(NkWindow::NkCursorType::Hand);
+                        window.SetCursor(NkWindow::NkCursorType::ResizeWE);
                     } 
                     else {
-                        window.SetCursor(NkWindow::NkCursorType::Arrow);
+                        window.SetCursor(NkWindow::NkCursorType::TextInput);
                     }
                 }
             }
