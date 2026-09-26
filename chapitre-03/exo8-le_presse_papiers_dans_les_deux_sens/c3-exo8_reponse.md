@@ -97,7 +97,9 @@ r taire ces deux lignes.
 [2026-09-26 22:08:56.389] [INF] [default] [c3-exo8_main.cpp:31 in nkmain] ->  Appuyer  sur la touche k pour rendre le press papier est fonctionnel
 ```
 
-3. **Presse-papiers Image (`NkClipboardImage::GetClipboardImage` / `SetClipboardImage`) :** Lors de l'appui sur `S`, le buffer de l'image stocké dans le presse-papiers est chargé sous forme d'une `NkClipboardImage`. On parcourt le tableau de pixels et inverse les canaux de couleurs ($255 - \text{valeur}$) avant de renvoyer l'image modifiée dans le presse-papiers.
+3. **Presse-papiers Image 
+
+(`NkClipboardImage::GetClipboardImage` / `SetClipboardImage`) :** Lors de l'appui sur `S`, le buffer de l'image stocké dans le presse-papiers est chargé sous forme d'une `NkClipboardImage`. On parcourt le tableau de pixels et inverse les canaux de couleurs ($255 - \text{valeur}$) avant de renvoyer l'image modifiée dans le presse-papiers.
 
 - le fichier `pressimage.png` illustre parfaitement l'inversion de couleur, et  le fichier `pressactive.png` es obtenu apres le     `window + v ` pour observer le press papier
 
