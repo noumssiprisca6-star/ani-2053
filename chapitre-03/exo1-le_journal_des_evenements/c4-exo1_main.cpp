@@ -51,10 +51,10 @@ int nkmain(const NkEntryState &state) {
                 }
             }
             timelapsed += dt;
-        if (timelapsed >= 1.0f) {
-            logger.Info("Total d'events : {0}", NkEvents().GetTotalEventCount());
-            timelapsed = 0.f;
-        }
+            if (timelapsed >= 1.0f) {
+                logger.Info("Total d'events : {0}", NkEvents().GetTotalEventCount());
+                timelapsed = 0.f;
+            }
         }
          
     }
