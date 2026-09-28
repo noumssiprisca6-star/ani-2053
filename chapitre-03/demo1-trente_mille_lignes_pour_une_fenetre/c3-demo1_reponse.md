@@ -66,7 +66,7 @@ PS C:\Users\jouvence computer\Desktop\tout\Gap\Nkentseu\Nkentseu\Kernel\Runtime\
 ---
 
 
-## 3. Listes et Decompte des backends de plateformes 
+## 3. Liste et Decompte des backends de plateformes 
 
 La commandes executees pour avoir la liste des dossiers contenant backends
 
@@ -242,7 +242,7 @@ math::NkVec2u NkWindow::GetSize() const {
 
 ```
 
-## 3. Ce qui est identique vs Ce qui change
+## 3. Ce qui est identique vs Ce qui change 
 
 ### Ce qui est identique
 
