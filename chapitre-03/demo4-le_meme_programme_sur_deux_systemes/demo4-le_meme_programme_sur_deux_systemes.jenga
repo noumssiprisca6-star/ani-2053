@@ -10,7 +10,7 @@ with workspace("demo4-le_meme_programme_sur_deux_systemes"):
     useconfig("../NKentseuKit/NkentseuKit.jenga")
 
     configurations(['Debug', 'Release'])
-    targetoses([TargetOS.WINDOWS])
+    targetoses([TargetOS.LINUX])
     targetarchs([TargetArch.X86_64])
 
     with project("environnement"):
