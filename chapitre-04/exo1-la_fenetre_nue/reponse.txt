@@ -1,0 +1,130 @@
+# Chapitre 04 — Exercice 1 : La Fenêtre Nue
+
+## . Objectif & Contexte
+L'objectif de cet exercice est d'écrire le programme `NKCanvas` le plus minimal possible. Il permet d'établir le squelette de base de toute application graphique basée sur le framework :
+- Ouverture d'une fenêtre configurée avec un titre, une taille et une couleur de fond.
+- Fermeture propre de l'application.
+- Mesure des métriques de code (lignes totales vs. lignes utiles).
+- Analyse du comportement de NKCanvas
+
+
+
+## . Implémentation du Code Source (`fenetre.cpp`)
+
+```cpp
+#include "NKWindow/NKWindow.h"
+#include "NKWindow/NKMain.h"
+#include"NKCanvas/App/NkCanvasApp.h"
+#include"NKCanvas/Renderer/Targets/NkRenderTarget.h"
+#include"NKCanvas/Renderer/Targets/NkRenderWindow.h"
+#include"NKCanvas/Renderer/Core/NkIRenderer2D.h"
+#include"NKCanvas/Core/NkContextDesc.h"
+#include"NKCanvas/Core/NkGraphicsApi.h"
+#include"NKMath/NKMath.h"
+#include"NKMath/NkColor.h"
+#include"NKTime/NkTime.h"
+#include <iostream>
+
+using namespace nkentseu;
+ 
+class fenetre_nue : public renderer:: NkCanvasApp { 
+    public:
+    fenetre_nue(){
+        Config().title =" ma fenetre";
+        Config().width = 800;
+        Config().height = 600;
+        Config().clearColor = {255, 13, 65 ,233};
+    }
+
+};
+
+int nkmain(const NkEntryState &state) {
+    return renderer::NkCanvasApp::Run<fenetre_nue>(state);
+}
+
+
+
+# 1 . Ce que la coquille fait a ma place 
+
+le coquille de NKCanvas ,  etant NkCanvasApp , creer  une fenetre  a ma place en prenant entierement la charge de la creation de la fenetre, affiche ses dimensions , les barres de titres avec les icones de redimensionnement  et de fermetures de la fenetre . Elle creer la fenetre et y ajoute des teintes de couleurs selon nos personnalisations en un claquement de du code . elle initialse le contexte graphique et du rendu , elle integre egalement la gestion des messages et la liberation des ressources lors de la fermeture sans qu'il soit necessaire d'ecrire un code boilerplate
+
+
+# 2 . Ce qui se passe si la configuration se fait dans OnInit
+
+
+
+Observation  : La fenêtre s'ouvre avec les paramètres par défaut (titre, dimensions, couleur) au lieu de la configuration personnalisée, mais aucune erreur de compilation ni d'exécution n'est levée.
+Cause : La fenêtre et le contexte graphique sont déjà instanciés avant l'exécution de OnInit(). Modifier Config() à ce stade intervient trop tard, car les paramètres initiaux ont déjà été consommés lors de la création.
+
+
+
+ # 3. Ce qui se passe sans NKMain.h 
+
+
+**Resultat**
+```bash
+╔══════════════════════════════════════════════════════════════════╗
+║                                                                  ║
+║                ██╗███████╗███╗   ██╗ ██████╗  █████╗             ║
+║                ██║██╔════╝████╗  ██║██╔════╝ ██╔══██╗            ║
+║                ██║█████╗  ██╔██╗ ██║██║  ███╗███████║            ║
+║           ██   ██║██╔══╝  ██║╚██╗██║██║   ██║██╔══██║            ║
+║           ╚█████╔╝███████╗██║ ╚████║╚██████╔╝██║  ██║            ║
+║            ╚════╝ ╚══════╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝            ║
+║                                                                  ║
+║             Multi-platform C/C++ Build System v2.8.0             ║
+║                                                                  ║
+╚══════════════════════════════════════════════════════════════════╝
+
+Loading workspace...
+
+Configuration: Debug
+Target:        Windows x86_64
+Toolchain:     clang-mingw
+
+Build Order (1 projects):
+  1. fenetre [CONSOLE_APP]
+
+
+╔══════════════════════════════════════════════════════════════════════════════════════════════╗
+║  Project: fenetre                                                         Kind: CONSOLE_APP  ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+
+ℹ Found 1 source file(s)
+✓   [1/1] Compiled: fenetre.cpp
+ℹ Linking...
+╔══════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                Compilation Error: Link Failed                                ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════╣
+║ C:/msys64/ucrt64/bin/ld: C:/msys64/ucrt64/lib/libmingw32.a(lib64_libmingw32_a-crtexewin.o):  ║
+║ in function `main':                                                                          ║
+║ D:/W/B/src/mingw-w64/mingw-w64-crt/crt/crtexewin.c:62:(.text.startup+0xb6): undefined        ║
+║ reference to `WinMain'                                                                       ║
+║ clang++: error: linker command failed with exit code 1 (use -v to see invocation)            ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+✗ Link failed: Build\Bin\Debug-Windows\fenetre\fenetre.exe
+
+┌──────────────────────────────────────────────────────────────────────────────────────────────┐
+│  ✗ Build Failed                                                                 Time: 7.15s  │
+│ Errors: 2  | Failed files: 1                                                                 │
+└──────────────────────────────────────────────────────────────────────────────────────────────┘
+
+════════════════════════════════════════════════════════════════════════════════
+                                  BUILD FAILED                                  
+════════════════════════════════════════════════════════════════════════════════
+Projects Built:  0/1
+Failed:         1
+Errors:         2
+Time:           7.16s
+Status:         ✗ FAILURE
+════════════════════════════════════════════════════════════════════════════════
+
+Echecs (1) — a corriger :
+  ✗ fenetre
+  ```
+
+Observations : Le projet compile correctement sans aucune erreur, mais la construction échoue à l'édition de liens (link) avec une erreur de référence non définie sur la fonction d'entrée.
+
+Cause : NKMain.h contient les définitions de macros et la colle de code indispensables qui lient le point d'entrée  du système (main/WinMain) à la fonction nkmain attendue par le framework.
+
+```
