@@ -21,7 +21,6 @@ class fenetre_nue : public renderer:: NkCanvasApp {
         Config().height = 600;
         Config().clearColor = {255, 13, 65 ,233};
     }
-
 };
 
 int nkmain(const NkEntryState &state) {
