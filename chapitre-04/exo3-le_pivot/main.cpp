@@ -3,8 +3,10 @@
 #include <algorithm>
 
 int main() {
+
     int N;
     if (!(std::cin >> N)) {
+        std::cout << "REFUSES 0\n";
         return 0;
     }
 
@@ -30,13 +32,17 @@ int main() {
         int s = 0;
 
         if (mod_angle == 0) {
-            c = 1; s = 0;
+            c = 1;
+            s = 0;
         } else if (mod_angle == 90) {
-            c = 0; s = 1;
+            c = 0;
+            s = 1;
         } else if (mod_angle == 180) {
-            c = -1; s = 0;
+            c = -1;
+            s = 0;
         } else if (mod_angle == 270) {
-            c = 0; s = -1;
+            c = 0;
+            s = -1;
         }
 
         int lx[4] = {0, w, w, 0};
@@ -61,18 +67,12 @@ int main() {
         int miny = std::min({wy[0], wy[1], wy[2], wy[3]});
         int maxy = std::max({wy[0], wy[1], wy[2], wy[3]});
 
-        std::cout << nom << " COINS " 
-        << wx[0] << " " << wy[0] << " "
-        << wx[1] << " " << wy[1] << " "
-        << wx[2] << " " << wy[2] << " "
-        << wx[3] << " " << wy[3] << "\n";
+        std::cout << nom << " COINS " << wx[0] << " " << wy[0] << " " << wx[1] << " " << wy[1] << " " << wx[2] << " " << wy[2] << " " << wx[3] << " " << wy[3] << "\n";
 
-        std::cout << nom << " BOITE " 
-        << minx << " " << miny << " "
-         << maxx << " " << maxy << "\n";
+        std::cout << nom << " BOITE " << minx << " " << miny << " " << maxx << " " << maxy << "\n";
     }
 
-    std::cout << "REFUSES"<< refuses << "\n";
+    std::cout << "REFUSES " << refuses << "\n";
 
     return 0;
 }
