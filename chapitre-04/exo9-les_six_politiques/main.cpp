@@ -15,22 +15,39 @@ int main() {
 
     long long vx[6], vy[6], vw[6], vh[6], mw[6], mh[6];
 
-    vx[0] = 0; vy[0] = 0; vw[0] = W; vh[0] = H;
-    mw[0] = W; mh[0] = H;
+    vx[0] = 0;
+    vy[0] = 0;
+    vw[0] = W;
+    vh[0] = H;
+    mw[0] = W;
+    mh[0] = H;
 
     if (!refPosée) {
-        vx[1] = vx[0]; vy[1] = vy[0]; vw[1] = vw[0]; vh[1] = vh[0];
-        mw[1] = mw[0]; mh[1] = mh[0];
+        vx[1] = vx[0];
+        vy[1] = vy[0];
+        vw[1] = vw[0];
+        vh[1] = vh[0];
+        mw[1] = mw[0];
+        mh[1] = mh[0];
     } else {
-        vx[1] = 0; vy[1] = 0; vw[1] = W; vh[1] = H;
-        mw[1] = RW; mh[1] = RH;
+        vx[1] = 0;
+        vy[1] = 0;
+        vw[1] = W;
+        vh[1] = H;
+        mw[1] = RW;
+        mh[1] = RH;
     }
 
     if (!refPosée) {
-        vx[2] = vx[0]; vy[2] = vy[0]; vw[2] = vw[0]; vh[2] = vh[0];
-        mw[2] = mw[0]; mh[2] = mh[0];
+        vx[2] = vx[0];
+        vy[2] = vy[0];
+        vw[2] = vw[0];
+        vh[2] = vh[0];
+        mw[2] = mw[0];
+        mh[2] = mh[0];
     } else {
-        mw[2] = RW; mh[2] = RH;
+        mw[2] = RW;
+        mh[2] = RH;
         if (W * RH <= H * RW) {
             vw[2] = W;
             vh[2] = arrondir(RH * W, RW);
@@ -43,8 +60,12 @@ int main() {
     }
 
     if (!refPosée) {
-        vx[3] = vx[0]; vy[3] = vy[0]; vw[3] = vw[0]; vh[3] = vh[0];
-        mw[3] = mw[0]; mh[3] = mh[0];
+        vx[3] = vx[0];
+        vy[3] = vy[0];
+        vw[3] = vw[0];
+        vh[3] = vh[0];
+        mw[3] = mw[0];
+        mh[3] = mh[0];
     } else {
         if (W >= RW && H >= RH) {
             long long k1 = W / RW;
@@ -54,18 +75,30 @@ int main() {
             vh[3] = RH * k;
             vx[3] = (W - vw[3]) / 2;
             vy[3] = (H - vh[3]) / 2;
-            mw[3] = RW; mh[3] = RH;
+            mw[3] = RW;
+            mh[3] = RH;
         } else {
-            vx[3] = vx[2]; vy[3] = vy[2]; vw[3] = vw[2]; vh[3] = vh[2];
-            mw[3] = mw[2]; mh[3] = mh[2];
+            vx[3] = vx[2];
+            vy[3] = vy[2];
+            vw[3] = vw[2];
+            vh[3] = vh[2];
+            mw[3] = mw[2];
+            mh[3] = mh[2];
         }
     }
 
     if (!refPosée) {
-        vx[4] = vx[0]; vy[4] = vy[0]; vw[4] = vw[0]; vh[4] = vh[0];
-        mw[4] = mw[0]; mh[4] = mh[0];
+        vx[4] = vx[0];
+        vy[4] = vy[0];
+        vw[4] = vw[0];
+        vh[4] = vh[0];
+        mw[4] = mw[0];
+        mh[4] = mh[0];
     } else {
-        vx[4] = 0; vy[4] = 0; vw[4] = W; vh[4] = H;
+        vx[4] = 0;
+        vy[4] = 0;
+        vw[4] = W;
+        vh[4] = H;
         if (W * RH > H * RW) {
             mw[4] = RW;
             mh[4] = arrondir(RW * H, W);
@@ -75,8 +108,12 @@ int main() {
         }
     }
 
-    vx[5] = 0; vy[5] = 0; vw[5] = AW; vh[5] = AH;
-    mw[5] = AW; mh[5] = AH;
+    vx[5] = 0;
+    vy[5] = 0;
+    vw[5] = AW;
+    vh[5] = AH;
+    mw[5] = AW;
+    mh[5] = AH;
 
     std::string noms[6] = {
         "FOLLOW_WINDOW", "STRETCH", "FIT_LETTERBOX",
