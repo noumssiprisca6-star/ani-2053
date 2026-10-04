@@ -1,71 +1,78 @@
 #include <iostream>
 #include <string>
-#include <vector>
-
-struct KeyState {
-    bool space = false;
-    bool right = false;
-};
 
 int main() {
-    int total_images = 0;
-    int nb_events = 0;
-
-    if (!(std::cin >> total_images >> nb_events)) {
-        std::cout << "SAUTS EVENEMENTS 0\n";
-        std::cout << "SAUTS INTERROGATION 0\n";
-        std::cout << "MANQUES 0\n";
+    int v, N;
+    if (!(std::cin >> v >> N)) {
         return 0;
     }
 
-    std::vector<int> event_space_presses(total_images + 1, 0);
-    std::vector<KeyState> final_states(total_images + 1);
+    bool spaceEnfoncee = false;
+    bool leftEnfoncee = false;
+    bool rightEnfoncee = false;
 
-    for (int i = 0; i < nb_events; ++i) {
-        int img = 0;
-        std::string action;
-        std::cin >> img >> action;
+    int xe = 0;
+    int xi = 0;
 
-        if (img >= 1 && img <= total_images) {
-            if (action == "+SPACE") {
-                event_space_presses[img]++;
-                final_states[img].space = true;
-            } else if (action == "-SPACE") {
-                final_states[img].space = false;
-            } else if (action == "+RIGHT") {
-                final_states[img].right = true;
-            } else if (action == "-RIGHT") {
-                final_states[img].right = false;
-            }
-        }
-    }
-
-    int pos_event = 0;
-    int pos_poll = 0;
-    int sauts_events = 0;
-    int sauts_poll = 0;
+    int sautsEvt = 0;
+    int sautsInterro = 0;
     int manques = 0;
 
-    bool current_space = false;
+    for (int i = 1; i <= N; ++i) {
+        int k;
+        std::cin >> k;
 
-    for (int i = 1; i <= total_images; ++i) {
-        if (event_space_presses[i] > 0) {
-            pos_event += 5 * event_space_presses[i];
-            sauts_events += event_space_presses[i];
+        int spacePlusDansImage = 0;
+
+        for (int j = 0; j < k; ++j) {
+            std::string evt;
+            std::cin >> evt;
+
+            char type = evt[0];
+            std::string nom = evt.substr(1);
+
+            if (type == '+') {
+                if (nom == "SPACE") {
+                    spaceEnfoncee = true;
+                    sautsEvt++;
+                    spacePlusDansImage++;
+                } else if (nom == "RIGHT") {
+                    rightEnfoncee = true;
+                    xe += v;
+                } else if (nom == "LEFT") {
+                    leftEnfoncee = true;
+                    xe -= v;
+                }
+            } else if (type == '-') {
+                if (nom == "SPACE") {
+                    spaceEnfoncee = false;
+                } else if (nom == "RIGHT") {
+                    rightEnfoncee = false;
+                } else if (nom == "LEFT") {
+                    leftEnfoncee = false;
+                }
+            }
         }
 
-        current_space = final_states[i].space;
-
-        if (current_space) {
-            pos_poll += 5;
-            sauts_poll++;
+        if (spaceEnfoncee) {
+            sautsInterro++;
+        }
+        if (rightEnfoncee) {
+            xi += v;
+        }
+        if (leftEnfoncee) {
+            xi -= v;
         }
 
-        std::cout << i << " " << pos_event << " " << pos_poll << "\n";
+        if (spacePlusDansImage > 0 && !spaceEnfoncee) {
+            manques += spacePlusDansImage;
+        }
+
+        std::cout << i << " " << xe << " " << xi << "\n";
     }
 
-    std::cout << "SAUTS EVENEMENTS " << sauts_events << "\n";
-    std::cout << "SAUTS INTERROGATION " << sauts_poll << "\n";
+    std::cout << "SAUTS EVENEMENTS " << sautsEvt << "\n";
+    std::cout << "SAUTS INTERROGATION " << sautsInterro << "\n";
     std::cout << "MANQUES " << manques << "\n";
 
     return 0;
