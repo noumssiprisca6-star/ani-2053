@@ -25,7 +25,7 @@ using namespace nkentseu::renderer;
 int nkmain(const NkEntryState& state) {
     NkWindow window;
     NkWindowConfig cfg;
-    cfg.title  = "Exo10 - L'interface qui ne defile pas";
+    cfg.title  = " L'interface qui ne defile pas";
     cfg.width  = 1280;
     cfg.height = 720;
     if (!window.Create(cfg)) return -1;
@@ -97,4 +97,4 @@ int nkmain(const NkEntryState& state) {
     }
 
     return 0;
-}
+} 
