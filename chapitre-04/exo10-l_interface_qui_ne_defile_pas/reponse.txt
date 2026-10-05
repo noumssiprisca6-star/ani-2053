@@ -1,0 +1,9 @@
+
+Ce que fait la barre sans ResetView :
+Sans l'appel à ResetView(), la barre d'interface glisse vers la gauche et disparaît de l'écran quand la caméra avance. Au lieu de rester collée en haut, elle se déplace comme si elle faisait partie du décor.
+
+Pourquoi :
+Une vue n'est pas un objet visuel, c'est un réglage (un état) du moteur de rendu. Ce réglage s'applique à tout ce qui est dessiné après lui tant qu'on ne le réinitialise pas.
+
+Où placer l'appel :
+Il faut appeler ResetView() juste après avoir dessiné le monde (les carrés) et juste avant de dessiner l'interface (la barre et le texte). Ainsi, la caméra bouge pour le monde, mais l'interface reste fixe à l'écran.
