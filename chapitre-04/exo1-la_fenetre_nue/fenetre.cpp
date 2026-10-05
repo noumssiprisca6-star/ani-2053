@@ -9,7 +9,7 @@
 #include"NKMath/NKMath.h"
 #include"NKMath/NkColor.h"
 #include"NKTime/NkTime.h"
-#include <iostream>
+
 
 using namespace nkentseu;
  

@@ -1,1 +1,1 @@
-lignes : 29 , utiles : 25, fond : 255,13,65
+lines : 26, useful : 22, background : 255 13 65
