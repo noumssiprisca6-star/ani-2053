@@ -1,0 +1,8 @@
+Ce que la coquille me donne :
+Elle prend en charge l'instanciation de la fenêtre, l'initialisation du contexte graphique, le calcul de dt via une horloge interne, la gestion automatique de la boucle d'événements et l'exécution continue du rendu.
+
+Ce qu'elle me prend :
+Elle m'impose son architecture applicative, son cycle de vie structuré par des callbacks (`OnUpdate`, `OnRender`, `OnEvent`), ainsi que le contrôle direct sur l'ordre d'exécution de la boucle principale.
+
+Quand je choisirais la main :
+Je choisirais la boucle à la main lorsque j'aurai besoin d'un contrôle précis sur le cycle d'exécution, comme l'intégration de plusieurs fenêtres simultanées, la gestion directe d'un pipeline de rendu sur mesure ou l'optimisation spécifique de la boucle de jeu.
