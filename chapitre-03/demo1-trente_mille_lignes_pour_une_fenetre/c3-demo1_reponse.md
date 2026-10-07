@@ -202,21 +202,21 @@ Mode                 LastWriteTime         Length Name
  
 ### Backend A : Implémentation Win32 (Windows)
 
-Sous Windows   
+Sous Windows  ` (ligne 990 a 1001)`
 
 ```cpp
-math::NkVec2u NkWindow::GetSize() const {
-    if (mData.hwnd == nullptr) return {0, 0};
+NkVec2u NkWindow::GetSize() const {
+		RECT rc = {};
+		if (mData.mHwnd)
+			GetClientRect(mData.mHwnd, &rc);
+		NkVec2u size = {(uint32)(rc.right - rc.left), (uint32)(rc.bottom - rc.top)};
 
-    RECT clientRect;
-    if (::GetClientRect(mData.hwnd, &clientRect)) {
-        return {
-            static_cast<uint32>(clientRect.right - clientRect.left),
-            static_cast<uint32>(clientRect.bottom - clientRect.top)
-        };
-    }
-    return {0, 0};
-}
+		// Synchroniser mConfig
+		const_cast<NkWindow *>(this)->mConfig.width = size.x;
+		const_cast<NkWindow *>(this)->mConfig.height = size.y;
+
+		return size;
+	}
 
 ```
 
@@ -225,20 +225,22 @@ math::NkVec2u NkWindow::GetSize() const {
 ### Backend B : Implémentation XLib (Linux X11)
 
 Sous Linux (X11)
-`(lignes 431 à 442) `:  
+`(lignes 522 à 535) `:  
 ```cpp
-math::NkVec2u NkWindow::GetSize() const {
-    if (mData.display == nullptr || mData.window == 0) return {0, 0};
+NkVec2u NkWindow::GetSize() const {
+		if (!mData.mDisplay || !mData.mXid) {
+			return {mConfig.width, mConfig.height};
+		}
+		XWindowAttributes a;
+		XGetWindowAttributes(mData.mDisplay, mData.mXid, &a);
+		NkVec2u size = {static_cast<uint32>(a.width), static_cast<uint32>(a.height)};
 
-    XWindowAttributes gwa;
-    if (XGetWindowAttributes(mData.display, mData.window, &gwa)) {
-        return {
-            static_cast<uint32>(gwa.width),
-            static_cast<uint32>(gwa.height)
-        };
-    }
-    return {0, 0};
-}
+		// Synchroniser mConfig
+		const_cast<NkWindow *>(this)->mConfig.width = size.x;
+		const_cast<NkWindow *>(this)->mConfig.height = size.y;
+
+		return size;
+	}
 
 ```
 
