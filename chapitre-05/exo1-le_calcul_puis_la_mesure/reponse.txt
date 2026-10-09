@@ -1,0 +1,8 @@
+Ce que la taille du fichier ne dit pas :
+La taille d'un fichier indique seulement son niveau de compression sur le disque, pas sa place en mémoire RAM. Par exemple, photo1.jpg ne pèse que 1,9 Mo sur le disque grâce à la compression JPEG, mais occupe 48 Mo en RAM une fois décompressée sous forme de pixels bruts (4000 x 3000 x 4 octets). La taille du fichier ne permet donc pas de deviner la mémoire réellement utilisée au runtime.
+
+L'ecart entre calcul et mesure :
+Le calcul théorique donne la taille exacte du tableau de pixels bruts. La mesure dans le gestionnaire des tâches est légèrement plus élevée (par exemple 48 234 496 octets au lieu de 48 000 000) parce que le système d'exploitation alloue la mémoire par blocs fixes (pages de 4 Ko) et que l'objet NKImage ajoute un léger surcoût de gestion interne.
+
+Avant d'ouvrir cinquante photos :
+Charger cinquante photos de 2 Mo ne consomme pas 100 Mo de RAM, mais environ 2,4 Go (50 x 48 Mo). Sans libération mémoire au fur et à mesure ou redimensionnement des images, la mémoire disponible baisse rapidement et le programme plante.

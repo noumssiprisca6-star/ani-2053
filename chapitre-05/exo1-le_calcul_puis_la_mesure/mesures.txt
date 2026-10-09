@@ -1,0 +1,5 @@
+image : icone.png, calcul : 10000, mesure : 65536, fichier : 1054
+image : capture.png, calcul : 6989220, mesure : 7000000, fichier : 222367
+image : image_aplatit.png, calcul : 2657936, mesure : 2670000, fichier : 14567
+image : photo1.jpg, calcul : 8294400, mesure : 8400000, fichier : 1905238
+image : photo2.jpg, calcul : 8294400, mesure : 8400000, fichier : 1938788
