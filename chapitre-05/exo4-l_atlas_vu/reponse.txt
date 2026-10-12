@@ -1,0 +1,8 @@
+Pourquoi une seule texture :
+Regrouper toutes les lettres dans une seule image (un atlas) permet à la carte graphique d'afficher tout le texte d'un seul coup, ce qui évite de changer constamment d'image et rend le programme plus rapide.
+
+Ce que change la taille :
+Quand on augmente la taille de la police, chaque lettre prend plus de place, ce qui oblige à utiliser une image de texture beaucoup plus grande et consomme plus de mémoire.
+
+À quoi sert la marge entre les glyphes :
+La petite marge vide laissée entre chaque lettre sert à empêcher les lettres de baver ou de se mélanger les unes sur les autres à cause du filtrage de l'image.
