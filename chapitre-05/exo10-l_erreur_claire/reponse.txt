@@ -1,0 +1,8 @@
+Ce que le refus m'apprend :
+Un refus indique  que le lecteur n'a pas pu traiter le fichier ou initialiser le décodage, mais il ne donne aucune explication technique détaillée sur la nature exacte de l'erreur.
+
+Ce qu'il ne m'apprend pas :
+Il ne précise pas si le problème vient d'une corruption des données (comme un fichier coupé ou tronqué), d'une extension trompeuse (comme un fichier texte renommé), ou d'un conteneur non pris en charge.
+
+Comment j'ai trouvé la cause :
+J'ai utilisé la sonde NkMediaProbe pour analyser l'en-tête de chaque fichier, ce qui m'a permis d'identifier le véritable format du conteneur et de comprendre pourquoi le lecteur avait réussi ou échoué.
