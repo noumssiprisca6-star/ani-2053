@@ -8,6 +8,11 @@
 using namespace nkentseu;
 using namespace nkentseu::threading;
 
+/* Version qui se fige :
+threading::NkScopedLock<NkMutex> lock1(m2);
+NkChrono::SleepMilliseconds(100);
+threading::NkScopedLock<NkMutex> lock2(m1);
+*/
 
 int main() {
     NkMutex m1;
