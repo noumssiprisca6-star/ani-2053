@@ -1,0 +1,15 @@
+Serveur :
+Serveur demarre sur le port 7777...
+[Connexion] Pair connecte - ID value: 14892385329650491054
+[Message recu] De l'expediteur ID value: 14892385329650491054 -> Contenu: "Bonjour depuis le client NKNetwork !"
+
+Client :
+Tentative de connexion au serveur a l'adresse 192.168.71.244
+[Connexion] Pair connecte - ID value: 14892385329650491054
+Message envoye au serveur : "Bonjour depuis le client NKNetwork !"
+
+Pair :
+L'identifiant vu de chaque côté correspond au champ value de la structure NkPeerId (ici avec la valeur 14892385329650491054). Côté serveur, cet identifiant désigne de manière unique le client distant connecté. Côté client, cet identifiant désigne le serveur auquel la connexion est établie.
+
+Machines :
+Une seule machine a été employée pour cet essai. L'adresse employée est 192.168.71.244 sur le port 7777.
