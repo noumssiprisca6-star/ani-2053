@@ -1,0 +1,4 @@
+Ouvriers : 4
+Réserve : 0ms, 0ms, 0ms
+Fils : 40ms, 22ms, 20ms
+Tâche longue : 1ms, 2ms
