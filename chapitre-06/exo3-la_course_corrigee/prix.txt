@@ -1,0 +1,6 @@
+Sans protection : 2629282, 30ms
+Mutex : 8000000, 248ms
+Atomique : 8000000, 184ms
+Local : 8000000, 7ms
+La moins chère : Local
+Pourquoi : Sans protection, le calcul est rapide mais faux à cause des conflits entre les fils. Avec le mutex, c'est très lent car les fils doivent se bloquer et attendre leur tour à chaque addition. Avec l'atome, c'est plus rapide mais l'ordinateur doit quand même synchroniser les cœurs. Enfin, la version locale est la plus rapide et la moins chère car chaque fil travaille tout seul dans son coin sans jamais déranger les autres, et on additionne tout à la toute fin.
