@@ -1,0 +1,4 @@
+Constat : Le programme se bloque et s'arrête de tourner sans afficher aucun message.
+Pause : Le fil A attend le verrou m2 tenu par B, et le fil B attend le verrou m1 tenu par A.
+Correction : J'ai mis les deux fils dans le même ordre pour prendre les verrous (d'abord m1, puis m2), sans rien enlever.
+Règle : Tous les threads doivent toujours prendre leurs verrous dans le même ordre pour éviter le blocage.
