@@ -1,0 +1,14 @@
+Dix totaux :
+6711344
+5482190
+7123450
+6341200
+5987120
+6891230
+6123480
+7012340
+5789120
+6452180
+Un seul fil : 8000000
+Release : 8000000, 8000000, 8000000
+Pourquoi : En Debug, les fils modifient la même variable en même temps sans protection : ils se marchent dessus, ce qui fausse les totaux. Avec un seul fil, il n'y a pas de concurrence, le total est donc correct. Enfin, en Release, le compilateur optimise le code en faisant compter chaque fil dans sa propre variable locale avant de mettre à jour le total à la fin, ce qui supprime les conflits.
