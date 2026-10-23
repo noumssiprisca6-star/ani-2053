@@ -1,0 +1,4 @@
+Module : NKFont
+D'après le projet : Je pensais que ce module s'occupait juste de charger des polices de caractères et des glyphes, en utilisant des mathématiques et de la mémoire. Vu que je n'ai pas vu  de lien avec un canevas graphique , je me suis dit qu'il ne dessinait rien à l'écran, qu'il ne faisait pas de son et qu'il gérait seulement du texte brut.
+Après l'en-tête : En ouvrant le fichier Canvas-kit-Windows/include/NKFont/NkFont.h, j'ai vu qu'en fait il gère des atlas de textures, lit du texte en UTF-8, fait du rendu SDF tres net et peut même transformer des lettres en objets 3D .
+Mes erreurs : Je m'attendais à un truc simple juste pour du texte 2D, alors qu'il y a de la 3D (avec des sommets et des indices) , ce que les dépendances de base ne m'ont pas fait deviner directement .
