@@ -1,0 +1,17 @@
+Module :
+NKGui
+
+Après le projet :
+Ce que j'ai lu : Les dépendances dans Canvas.jenga qui lient le module aux images, polices et événements.
+Mon estimation : Un outil simple pour afficher des boutons et des menus à l'écran.
+
+Après un programme :
+Ce que j'ai lu : Le fichier NKGui.h qui annonce un système d'interface refait à neuf, sans ImGui, avec un mode immédiat et retenu.
+Mon estimation : Un framework d'interface graphique complet, indépendant et fait sur mesure pour le moteur.
+
+Après les en-têtes :
+Ce que j'ai lu : Les fichiers techniques et de configuration, avec la gestion de la compatibilité multiplateforme.
+Mon estimation : Un module très propre, robuste et prêt à fonctionner sans bug sur tous les systèmes.
+
+L'écart :
+Le projet a  montré une brique graphique. L'en-tête principal a révélé un système d'interface complet et original. Enfin, les en-têtes techniques ont prouvé le travail de robustesse et de portabilité .
