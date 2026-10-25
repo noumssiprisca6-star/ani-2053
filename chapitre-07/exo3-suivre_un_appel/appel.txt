@@ -1,0 +1,12 @@
+Les sauts :
+1. Fichier : NkCanvasApp.h — Fonction : OnRender — Ce qui s'y décide : Point de départ où l'application dessine sur sa cible de rendu.
+2. Fichier : NkRenderTarget.h — Fonction : Clear — Ce qui s'y décide : Déclaration de la fonction pour effacer l'écran, qui se sépare selon chaque type de fenêtre.
+
+Arrêt :
+La fonction virtuelle pure Clear dans NkRenderTarget.h.
+
+Pourquoi là :
+On s'arrête sur une méthode virtuelle pure (`= 0`) car elle n'a pas de code ici : son vrai code dépend des classes en aval.
+
+Ce que je sais maintenant :
+Je sais que l'ordre d'effacer l'écran passe par l'interface de rendu pour l'envoyer à la fenêtre. Je suppose sans l'avoir vu que la vraie fonction s'occupe de vider les tampons graphiques de l'ordinateur.
