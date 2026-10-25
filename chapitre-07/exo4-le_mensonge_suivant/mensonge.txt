@@ -1,0 +1,14 @@
+Le commentaire :
+Dans le fichier include/NKCanvas/Renderer/Targets/NkRenderTarget.h, la documentation de la méthode IsViewCustom() indique : "/// Vrai si une vue a ete posee par SetView depuis le dernier ResetView."
+
+Le code :
+Dans le même fichier include/NKCanvas/Renderer/Targets/NkRenderTarget.h, l'implémentation de la méthode est la suivante :
+virtual bool IsViewCustom() const {
+    return false;
+}
+
+La preuve :
+Le code retourne systématiquement la valeur fausse (false) en dur, sans effectuer aucune vérification ni mémoriser si une vue personnalisée a été appliquée via SetView, ce qui contredit directement l'affirmation du commentaire.
+
+Ce qu'il dit de nson auteur :
+L'auteur du code a probablement anticipé une fonctionnalité future de suivi d'état qu'il a documentée en avance, puis a laissé un code temporaire (stub) sans le terminer. Cela montre que le code comporte parfois des promesses documentées qui attendent encore d'être implémentées .
