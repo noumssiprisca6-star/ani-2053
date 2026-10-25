@@ -1,0 +1,11 @@
+Ce qu'il possède :
+La classe a quatre variables de base pour placer un objet : une position, une rotation, une taille (échelle) et un point de pivot (origine). Elle a aussi des variables de cache pour garder les calculs en mémoire.
+
+Qui l'appelle :
+Elle est utilisée par les éléments graphiques de l'application  (comme les images ou les formes) qui ont besoin de bouger ou de tourner à l'écran. On l'appelle en faisant hériter ces objets de cette classe.
+
+Ce qu'il promet :
+Elle promet de tout gérer pour positionner un objet en 2D (le déplacer, le faire pivoter, l'agrandir ou le rétrécir), et de fournir les outils mathématiques nécessaires pour l'afficher correctement.
+
+Ce que je n'ai pas lu :
+Je n'ai pas eu besoin de lire le code à l'intérieur des fonctions (les calculs de maths), ni d'ouvrir les autres fichiers d'en-tête pour comprendre à quoi sert cette classe.
