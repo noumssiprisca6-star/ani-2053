@@ -1,0 +1,11 @@
+Les couches :
+1. Système d'exploitation (Windows) : Émet le message natif WM_KEYDOWN via la boucle de messages Win32 (provenance : code de la plateforme).
+2. Module NKWindow : Reçoit le message brut dans la gestion de la fenêtre et extrait les données de la touche (fichiers d'en-tête NkWindow.h / NkKeyboardEvent.h, provenance : code).
+3. Module NKEvent : Encapsule les données dans la classe de base polymorphe `NkEvent` et le type dérivé associé (fichiers NkEvent.h, provenance : code).
+4. Application utilisateur : Traite l'événement via la méthode de rappel `OnKeyPress` de la coquille `NkCanvasApp` (provenance : code utilisateur et commentaires de documentation du kit).
+
+Où je me suis arrêté :
+Je me suis arrêté au détail exact de la fonction interne du dorsal de la fenêtre qui fait la transition exacte entre le message brut Win32 (`WM_KEYDOWN`) et l'instanciation de l'objet `NkEvent`, car cette implémentation bas niveau dépend des fichiers de source (`.cpp`) du dorsal de la plateforme qui ne sont pas exposés en détail dans les simples fichiers d'en-tête (`include/`).
+
+Combien :
+4 couches au total, et j'en ai vu 3 travailler directement dans les en-têtes   
