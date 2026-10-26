@@ -1,0 +1,17 @@
+Par le texte :
+Commande : grep -rn "Draw" include/
+Liste obtenue :
+- Les déclarations de la méthode virtuelle pure dans les en-têtes (NkDrawable.h, NkRenderTarget.h).
+- Les surcharges de Draw pour les sommets et les états de rendu.
+- Les diverses occurrences et appels dans les modules du kit.
+
+Par la pile :
+Action : Point d'arrêt dans la méthode Draw personnalisée et exécution sous le débogueur.
+Liste obtenue :
+1. MonObjetDessinable::Draw (appelants.cpp)
+2. nkentseu::renderer::NkRenderTarget::Draw (NkRenderTarget.h)
+3. MonApp::OnRender (appelants.cpp)
+4. Boucle interne de la coquille NkCanvasApp
+
+Les différences :
+La recherche textuelle trouve tous les textes "Draw" (commentaires, déclarations, code mort), tandis que la pile d'appels montre le chemin d'exécution réel et dynamique du processeur au moment précis du point d'arrêt.
