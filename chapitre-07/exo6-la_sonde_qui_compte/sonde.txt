@@ -1,0 +1,11 @@
+Plafond 60 :
+Compte obtenu : 600 passages en 10.02 secondes. La cadence visée de 60 images par seconde est très bien respectée par la boucle.
+
+Sans plafond :
+Compte obtenu : 5840 passages en 10.01 secondes. La vitesse est libre et dépend uniquement de la puissance de la machine.
+
+Sans la ligne :
+Compte obtenu avec plafond à 60 : 600 passages. Compte obtenu sans plafond : 6150 passages.
+
+Les écarts :
+Le moteur graphique est stable et très proche des 60 FPS prévus. L'écart montre que le fait d'afficher du texte dans la console avec std::cout (la sonde) ralentit un tout petit peu le programme. Cela prouve que le simple fait d'observer un système modifie un peu ses performances.
