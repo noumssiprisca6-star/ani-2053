@@ -1,0 +1,14 @@
+Question : Où est définie la taille de la Small String Optimization (SSO) pour les chaînes du module NKContainers, et comment est-elle configurée ? Date : 2026-10-26, Début : 01h00, Fin : 2h:00.
+
+Les endroits :
+NKContainers/NkCompat.h NKENTSEU_CONTAINERS_STRING_SSO_SIZE
+NKContainers/NkContainersApi.h traits::NkIsAssociativeContainer
+
+Les surprises :
+Le fichier NkCompat.h indique explicitement dans ses commentaires que la détection des standards C++ ne se fait pas dans NkPlatformDetect.h mais dans NkCompilerDetect.h, ce qui évitait un piège historique de compilation silencieuse.
+
+Les questions ouvertes :
+2026-10-26 08:51 : Est-ce que  l'alignement par défaut fixé à 64 octets (NKENTSEU_CONTAINERS_DEFAULT_ALIGNMENT) n'entraîne pas un gaspillage mémoire trop important pour les petits conteneurs stockés en grande quantité ?
+
+Les mensonges :
+Aucun
