@@ -1,0 +1,12 @@
+Le long :
+NKMemory/NkMemory.h, environ 1040 lignes.
+
+Le difficile :
+NKStream/NkStream.h, environ 75 lignes.
+
+Ce qu'ils gardent :
+NKMemory.h garde l'état global du système d'allocation : l'allocateur principal (`mAllocator`), la liste des allocations suivies (`mHead`), les statistiques globales (`mLiveBytes`, `mPeakBytes`, etc.), la table de hachage des pointeurs (`mAllocIndex`), et la liste des garbage collectors (`mGcHead`). Ces données changent lors des appels à `Allocate`, `Free`, `New` ou `Delete`, protégés par un verrou (`mLock`).
+NkStream.h garde uniquement le mode d'ouverture du flux (`mOpenMode`) sous forme de masque de bits, ainsi que la définition des fonctions virtuelles pures (comme `Open`, `Close`, `ReadRaw`, `WriteRaw`, `Seek`) dont l'état réel et les données concrètes sont gérés plus tard dans les sous-classes.
+
+L'écart :
+Le fichier long (`NKMemory.h`) se lit facilement parce qu'il est très bien découpé en sections logiques claires et documenté, ce qui permet de comprendre chaque élément à sa place. À l'inverse, le fichier court (`NkStream.h`) résiste car il condense en très peu de lignes des notions avancées : des fonctions templates (`Read<T>`, `Write<T>`), de l'héritage virtuel pur, et des masques de bits. Comme l'implémentation est absente de ce fichier, il faut deviner  logiquement  comment les classes filles gèrent concrètement les flux.
