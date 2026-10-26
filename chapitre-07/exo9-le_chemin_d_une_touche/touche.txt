@@ -5,7 +5,7 @@ Les couches :
 4. Application utilisateur : Traite l'événement via la méthode de rappel `OnKeyPress` de la coquille `NkCanvasApp` (provenance : code utilisateur et commentaires de documentation du kit).
 
 Où je me suis arrêté :
-Je me suis arrêté au détail exact de la fonction interne du dorsal de la fenêtre qui fait la transition exacte entre le message brut Win32 (`WM_KEYDOWN`) et l'instanciation de l'objet `NkEvent`, car cette implémentation bas niveau dépend des fichiers de source (`.cpp`) du dorsal de la plateforme qui ne sont pas exposés en détail dans les simples fichiers d'en-tête (`include/`).
+Je me suis arrêté au détail exact de la fonction interne du dorsal de la fenêtre qui fait la transition exacte entre le message brut Win32 (`WM_KEYDOWN`) et l'instanciation de l'objet `NkEvent`, car cette implémentation bas niveau dépend des fichiers de source (`.cpp`) du dorsal de la plateforme qui ne sont pas exposés en détail dans les  fichiers d'en-tête (`include/`).
 
 Combien :
-4 couches au total, et j'en ai vu 3 travailler directement dans les en-têtes  
+4 couches au total, et j'en ai vu 3 travailler directement dans les en-têtes   
