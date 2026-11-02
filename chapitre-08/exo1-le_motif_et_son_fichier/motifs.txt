@@ -1,0 +1,35 @@
+Stratégie :
+NKFont/NkFont.h:92
+bool sdfMode = false;
+
+Fabrique :
+NKFont/NkFont.h:118
+NkFont *AddFontFromFile(const char *path, nkft_float32 sizePixels, const NkFontConfig *cfg = nullptr);
+
+Façade :
+NKFont/NkFont.h:102
+struct NkFontAtlas 
+
+Patron de méthode :
+NKCanvas/App/NkCanvasApp.h:262
+virtual void OnRender(NkRenderWindow &target) 
+
+Observateur :
+NKEvent/NkEventDispatcher.h:113
+class NkEventDispatcher 
+
+Singleton :
+NKEvent/NkEventDispatcher.h:263
+inline NkInputQuery NkInput;
+
+Adaptateur :
+NKCanvas/Renderer/Targets/NkRenderWindow.h:49
+class NkRenderWindow : public NkRenderTarget 
+
+Composite :
+NKCanvas/Renderer/Core/NkDrawable.h:43
+class NkDrawable 
+
+Commande :
+NKEvent/NkEventDispatcher.h:642
+struct NkActionCommand 
