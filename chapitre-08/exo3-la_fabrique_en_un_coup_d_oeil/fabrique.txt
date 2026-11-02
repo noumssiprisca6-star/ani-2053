@@ -1,0 +1,9 @@
+Recherche :
+Commande : grep -rn "NkOpenGLRenderer2D" include/
+Résultat : 1 fichier trouvé dans les en-têtes.
+
+Hors de son dossier :
+NKCanvas/Renderer/Core/NkIRenderer2D.h:13 - commentaire
+
+Conclusion :
+L'en-tête de la fabrique (NkRenderer2DFactory.h) ne nomme aucun dorsal concret : il se limite à déclarer les méthodes génériques de création manipulant uniquement l'interface abstraite NkIRenderer2D. Le nom de la classe concrète NkOpenGLRenderer2D n'apparaît que sous forme de mention textuelle dans un commentaire d'en-tête. Cela prouve que la fabrique et l'interface remplissent parfaitement leur rôle d'encapsulation : l'appelant utilise le système de rendu sans jamais avoir à inclure ni connaître les classes concrètes des différents dorsaux.
