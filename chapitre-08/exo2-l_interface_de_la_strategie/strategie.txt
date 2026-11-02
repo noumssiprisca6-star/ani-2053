@@ -1,0 +1,16 @@
+Virtuelles pures :
+Le fichier NkIRenderer2D.h contient 24 méthodes virtuelles pures (qui se terminent par "= 0;"). Première méthode : compter une par une les fonctions qui se terminent par "= 0;", sans prendre celles qui ont déjà un code par défaut. Seconde méthode : filtrer directement la liste des fonctions de l'interface pour vérifier le total de 24.
+
+Dorsaux :
+Les dorsaux du kit sont : OpenGL, Vulkan, DirectX11, DirectX12 et Software.
+
+Ce que chacun écrit :
+Chaque dorsal hérite de la classe mère NkIRenderer2D et doit réécrire toutes les méthodes obligatoires. Chaque dorsal réécrit exactement 24 méthodes :
+- OpenGL : 24 méthodes réécrites
+- Vulkan : 24 méthodes réécrites
+- DirectX11 : 24 méthodes réécrites
+- DirectX12 : 24 méthodes réécrites
+- Software : 24 méthodes réécrites
+
+Le coût :
+L'interface de stratégie oblige à réécrire les 24 méthodes virtuelles pures pour chaque version. Ajouter un nouveau dorsal coûte donc l'écriture de ces 24 méthodes obligatoires.
