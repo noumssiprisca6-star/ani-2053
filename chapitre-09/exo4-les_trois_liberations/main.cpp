@@ -3,10 +3,9 @@
 #include <string>
 #include <algorithm>
 
-struct TextureInfo {
+struct Texture {
     int id;
-    int libérations = 0;
-    bool estSupprimée = false;
+    int liberations = 0;
 };
 
 int main() {
@@ -20,8 +19,9 @@ int main() {
         return 0;
     }
 
-    std::vector<TextureInfo> textures;
-    int totalCreées = 0;
+    std::vector<Texture> textures;
+    std::vector<Texture> toutesTextures;
+    int totalCrees = 0;
     int plantageOp = -1;
     int texturePlantage = -1;
     bool plantageFin = false;
@@ -46,23 +46,37 @@ int main() {
         }
 
         if (op == "AJOUTE") {
-            totalCreées++;
-            textures.push_back({totalCreées, 0, false});
+            totalCrees++;
+            Texture t{totalCrees, 0};
+            textures.push_back(t);
+            toutesTextures.push_back(t);
         } else if (op == "SUPPRIME") {
             int idx;
             std::cin >> idx;
             if (idx >= 0 && idx < static_cast<int>(textures.size())) {
-                for (int k = 0; k < s; ++k) {
-                    if (!libererTexture(textures[idx].libérations, textures[idx].id, i, false)) {
+                int idTex = textures[idx].id;
+                for (auto &t : toutesTextures) {
+                    if (t.id == idTex) {
+                        for (int k = 0; k < s; ++k) {
+                            if (!libererTexture(t.liberations, t.id, i, false)) {
+                                break;
+                            }
+                        }
                         break;
                     }
                 }
                 textures.erase(textures.begin() + idx);
             }
         } else if (op == "VIDE") {
-            for (auto &t : textures) {
-                for (int k = 0; k < v; ++k) {
-                    if (!libererTexture(t.libérations, t.id, i, false)) {
+            for (auto &tex : textures) {
+                int idTex = tex.id;
+                for (auto &t : toutesTextures) {
+                    if (t.id == idTex) {
+                        for (int k = 0; k < v; ++k) {
+                            if (!libererTexture(t.liberations, t.id, i, false)) {
+                                break;
+                            }
+                        }
                         break;
                     }
                 }
@@ -83,9 +97,15 @@ int main() {
         return 0;
     }
 
-    for (auto &t : textures) {
-        for (int k = 0; k < f; ++k) {
-            if (!libererTexture(t.libérations, t.id, -1, true)) {
+    for (auto &tex : textures) {
+        int idTex = tex.id;
+        for (auto &t : toutesTextures) {
+            if (t.id == idTex) {
+                for (int k = 0; k < f; ++k) {
+                    if (!libererTexture(t.liberations, t.id, -1, true)) {
+                        break;
+                    }
+                }
                 break;
             }
         }
@@ -103,12 +123,28 @@ int main() {
         return 0;
     }
 
-    std::cout << "CREEES " << totalCreées << "\n";
+    std::cout << "CREEES " << totalCrees << "\n";
 
     int fuites = 0;
     std::vector<int> perdues;
-    
-   
-    
+
+    for (const auto &t : toutesTextures) {
+        if (t.liberations == 0) {
+            fuites++;
+            perdues.push_back(t.id);
+        }
+    }
+
+    std::cout << "FUITES " << fuites << "\n";
+    std::cout << "PERDUES";
+    if (perdues.empty()) {
+        std::cout << " AUCUN\n";
+    } else {
+        for (int id : perdues) {
+            std::cout << " " << id;
+        }
+        std::cout << "\n";
+    }
+
     return 0;
 }
