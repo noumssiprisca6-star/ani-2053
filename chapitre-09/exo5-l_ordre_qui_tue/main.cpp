@@ -4,7 +4,6 @@
 #include <sstream>
 #include <algorithm>
 #include <set>
-#include <map>
 
 struct Dependency {
     std::string a;
@@ -15,26 +14,26 @@ int main() {
     std::vector<std::vector<std::string>> scopes;
     scopes.push_back({});
     
-    std::set<std::string> liberges;
+    std::set<std::string> liberes;
     std::vector<Dependency> dependencies;
     std::vector<std::string> output;
     bool plantage = false;
     std::string plantageMsg = "";
 
     auto libererObjet = [&](const std::string& obj, bool isDestruction) {
-        if (liberges.count(obj)) {
+        if (liberes.count(obj)) {
             return true;
         }
         for (const auto& dep : dependencies) {
             if (dep.a == obj) {
-                if (!liberges.count(dep.b)) {
+                if (!liberes.count(dep.b)) {
                     plantage = true;
                     plantageMsg = "PLANTAGE " + dep.a + " " + dep.b;
                     return false;
                 }
             }
         }
-        liberges.insert(obj);
+        liberes.insert(obj);
         if (isDestruction) {
             output.push_back("DETRUIT " + obj);
         } else {
@@ -59,8 +58,10 @@ int main() {
                 auto currentScope = scopes.back();
                 scopes.pop_back();
                 for (auto it = currentScope.rbegin(); it != currentScope.rend(); ++it) {
-                    if (!libererObjet(*it, true)) {
-                        break;
+                    if (!liberes.count(*it)) {
+                        if (!libererObjet(*it, true)) {
+                            break;
+                        }
                     }
                 }
             }
@@ -81,7 +82,7 @@ int main() {
             } else if (cmd == "FERME") {
                 std::string obj;
                 ss >> obj;
-                if (!liberges.count(obj)) {
+                if (!liberes.count(obj)) {
                     if (!libererObjet(obj, false)) {
                         break;
                     }
@@ -95,8 +96,10 @@ int main() {
             auto currentScope = scopes.back();
             scopes.pop_back();
             for (auto it = currentScope.rbegin(); it != currentScope.rend(); ++it) {
-                if (!libererObjet(*it, true)) {
-                    break;
+                if (!liberes.count(*it)) {
+                    if (!libererObjet(*it, true)) {
+                        break;
+                    }
                 }
             }
             if (plantage) {
@@ -106,16 +109,15 @@ int main() {
     }
 
     if (plantage) {
+        for (const auto& s : output) {
+            std::cout << s << "\n";
+        }
         std::cout << plantageMsg << "\n";
     } else {
-        if (output.empty()) {
-            std::cout << "PROPRE\n";
-        } else {
-            for (const auto& s : output) {
-                std::cout << s << "\n";
-            }
-            std::cout << "PROPRE\n";
+        for (const auto& s : output) {
+            std::cout << s << "\n";
         }
+        std::cout << "PROPRE\n";
     }
 
     return 0;
