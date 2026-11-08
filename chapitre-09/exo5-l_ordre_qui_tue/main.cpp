@@ -26,7 +26,7 @@ int main() {
         }
         for (const auto& dep : dependencies) {
             if (dep.a == obj) {
-                if (!liberes.count(dep.b)) {
+                if (liberes.count(dep.b)) {
                     plantage = true;
                     plantageMsg = "PLANTAGE " + dep.a + " " + dep.b;
                     return false;
@@ -108,15 +108,13 @@ int main() {
         }
     }
 
+    for (const auto& s : output) {
+        std::cout << s << "\n";
+    }
+
     if (plantage) {
-        for (const auto& s : output) {
-            std::cout << s << "\n";
-        }
         std::cout << plantageMsg << "\n";
     } else {
-        for (const auto& s : output) {
-            std::cout << s << "\n";
-        }
         std::cout << "PROPRE\n";
     }
 
