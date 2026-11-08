@@ -4,7 +4,6 @@
 #include <sstream>
 #include <map>
 #include <set>
-#include <algorithm>
 
 struct Methode {
     std::string nom;
@@ -15,7 +14,9 @@ struct Methode {
 
 int main() {
     int n;
-    if (!(std::cin >> n)) return 0;
+    if (!(std::cin >> n)) {
+        return 0;
+    }
     std::string dummy;
     std::getline(std::cin, dummy);
 
@@ -29,7 +30,7 @@ int main() {
         std::string declareStr;
         ss >> methodes[i].nom >> declareStr >> methodes[i].modifie;
         methodes[i].dejaConst = (declareStr == "const");
-        
+
         int k;
         ss >> k;
         for (int j = 0; j < k; ++j) {
@@ -53,40 +54,35 @@ int main() {
     while (changement) {
         changement = false;
         for (int i = 0; i < n; ++i) {
-            if (methodes[i].dejaConst || methodes[i].modifie == 1) continue;
-            if (peutEtreConst.find(methodes[i].nom) != peutEtreConst.end()) continue;
+            if (peutEtreConst.count(methodes[i].nom)) {
+                continue;
+            }
 
-            bool ok = true;
+            bool determine = true;
+            bool valide = true;
+
             for (const auto& app : methodes[i].appels) {
-                if (indices.find(app) == indices.end()) {
-                    ok = false;
+                if (!peutEtreConst.count(app)) {
+                    determine = false;
                     break;
                 }
-                int idxApp = indices[app];
-                if (methodes[idxApp].modifie == 1) {
-                    ok = false;
-                    break;
-                }
-                if (!methodes[idxApp].dejaConst) {
-                    if (peutEtreConst[app] == false) {
-                        ok = false;
-                        break;
-                    }
-                    if (peutEtreConst.find(app) ==peutEtreConst.end()) {
-                        ok = false;
-                    }
+                if (!peutEtreConst[app]) {
+                    valide = false;
                 }
             }
-            if (ok) {
-                peutEtreConst[methodes[i].nom] = true;
-                changement = true;
+
+            if (!determine) {
+                continue;
             }
+
+            peutEtreConst[methodes[i].nom] = valide;
+            changement = true;
         }
     }
 
     std::vector<std::string> pourrait;
     for (int i = 0; i < n; ++i) {
-        if (!methodes[i].dejaConst && peutEtreConst[methodes[i].nom] == true) {
+        if (!methodes[i].dejaConst && peutEtreConst[methodes[i].nom]) {
             pourrait.push_back(methodes[i].nom);
         }
     }
@@ -110,15 +106,20 @@ int main() {
     int passes = 0;
     std::set<std::string> traite;
     for (const auto& m : methodes) {
-        if (m.dejaConst) traite.insert(m.nom);
+        if (m.dejaConst) {
+            traite.insert(m.nom);
+        }
     }
 
     while (traite.size() < methodes.size()) {
         std::vector<std::string> aAjouter;
         for (int i = 0; i < n; ++i) {
-            if (traite.count(methodes[i].nom)) continue;
-            if (methodes[i].modifie == 1) continue;
-            if (peutEtreConst[methodes[i].nom] != true) continue;
+            if (traite.count(methodes[i].nom)) {
+                continue;
+            }
+            if (!peutEtreConst[methodes[i].nom]) {
+                continue;
+            }
 
             bool appOk = true;
             for (const auto& app : methodes[i].appels) {
@@ -132,7 +133,9 @@ int main() {
             }
         }
 
-        if (aAjouter.empty()) break;
+        if (aAjouter.empty()) {
+            break;
+        }
         for (const auto& nom : aAjouter) {
             traite.insert(nom);
         }
