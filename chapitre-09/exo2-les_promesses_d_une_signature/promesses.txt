@@ -1,0 +1,5 @@
+methode : IsPortrait, promesses : 2
+methode : Config, promesses : 2
+methode : Window, promesses : 2
+methode : Time, promesses : 2
+methode : RaisonDeLaPause, promesses : 1

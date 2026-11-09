@@ -1,0 +1,5 @@
+La promesse la plus forte : La combinaison du qualificateur const final et de l'attribut noexcept garantit que l'état interne de l'objet ne sera en aucun cas altéré par l'appel de la méthode et qu'aucune exception ne sera levée, assurant une sécurité et une prédictibilité maximales lors de la lecture des données.
+
+Le message du compilateur : error: passing 'const nkentseu::renderer::MockApp' as 'this' argument discards qualifiers [-fpermissive]
+
+Une promesse que la signature ne dit pas : La signature ne peut pas exprimer les invariants logiques internes (par exemple, qu'un pointeur interne ne doit jamais être nul ou qu'un compteur de temps doit progresser de manière monotone), des règles qui sont pourtant appliquées et vérifiées directement dans le corps de la méthode.
