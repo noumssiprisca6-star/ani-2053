@@ -1,0 +1,11 @@
+Ce que possède chaque fichier :
+- NkRefView.h : La caméra 2D du canevas (centre, zoom, conversions de coordonnées et grille).
+- NkRefBoard.h : Le modèle de la planche de références (gestion des images, positions, sélections et traits de crayon).
+- NkRefFile.h : La sauvegarde et la lecture du format de fichier .nkref (embarquement des données binaires).
+- main.cpp : La glue applicative (fenêtre, boucle principale, événements, interface graphique et rendu).
+
+La part des fichiers purs :
+Les fichiers purs (NkRefView.h, NkRefBoard.h et NkRefFile.h) totalisent 684 lignes sur un total de 2823 lignes. La part des fichiers purs est de 24,23 %.
+
+Les deux fichiers que je garderais :
+Les deux fichiers que je garderais sont NkRefView.h et NkRefBoard.h car ils constituent le cœur logique et indépendant de la planche, réutilisables sans dépendre d'une interface graphique ou d'une plateforme spécifique.
