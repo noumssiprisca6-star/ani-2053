@@ -78,7 +78,7 @@ int main() {
             std::cout << "ANNULE " << num_annule
                       << " ATTENDU " << x
                       << " OBTENU " << y
-                      << " VERDICT " << verdict << '\n';
+                      << ' ' << verdict << '\n';
         }
     }
 
